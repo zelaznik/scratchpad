@@ -40,3 +40,11 @@ li:hover {
   font-size: 72px;
   font-weight: bold;
 }
+
+.checked.x.win {
+  background-color: pink;
+}
+
+.checked.o.win {
+  background-color: pink;
+}

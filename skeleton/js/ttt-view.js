@@ -33,6 +33,7 @@
           var winner = view.game.winner();
           if (winner) {
             $h2.text('"' + winner + '" Wins!');
+            $('.' + currentPlayer).addClass('win');
           } else {
             $h2.text('The game is a tie!');
           }

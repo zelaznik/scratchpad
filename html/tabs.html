@@ -2,11 +2,37 @@
 <html>
   <head>
     <title>My Cool Website</title>
-    <script src="./js/jquery-1.11.3.js"></script>
-    <script src="./js/tabs.js"></script>
-    <link href="./css/tabs.css" rel="stylesheet" type="text/css">
+    <script src="../js/jquery-1.11.3.js"></script>
+    <script src="../js/tabs.js"></script>
+    <link href="../css/tabs.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.17.2/build/cssreset/cssreset-min.css">
   </head>
 
-  <body></body>
+  <body>
+
+  <ul class="tabs" data="content-tabs">
+    <li><a href="javascript:void(0);" for="#golden-retriever" class="active">Golden Retriever</a></li>
+    <li><a href="javascript:void(0);" for="#black-lab">Black Lab</a></li>
+    <li><a href="javascript:void(0);" for="#german-shepherd">German Shepherd</a></li>
+
+    <div id="content-tabs">
+      <div class="tab-pane active" id="golden-retriever">
+        <p>Golden Retriever</p>
+      </div>
+      <div class="tab-pane" id="black-lab">
+        <p>Black Lab</p>
+      </div>
+      <div class="tab-pane" id="german-shepherd">
+        <p>German Shepherd</p>
+      </div>
+    </div>
+  </ul>
+
+  <script>
+    $(function() {
+      $('.tabs').tabs();
+    })
+  </script>
+
+  </body>
 </html>

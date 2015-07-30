@@ -10,9 +10,10 @@ a {
 }
 
 .tab-pane {
+  opacity: 0;
   display: none;
   color: green;
-  transition: 5s;
+  transition: 1s;
 }
 
 .tab-pane.active {
@@ -29,4 +30,11 @@ a {
 
 .tab-pane.active.transitioning {
   /* From ACTIVE to IN-ACTIVE */
+  opacity: 100;
+  display: block;
+}
+
+img {
+  width: 200px;
+  height: 100px;
 }

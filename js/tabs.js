@@ -22,7 +22,7 @@ $.Tabs.prototype.clickTab = function (e) {
   // body...
 
   this.$activeTab.removeClass("active");
-  
+
   var tabs = this;
   this.$activeTab.on("transitionend", function(e) {
     $transitionedTab = tabs.$activeTab;

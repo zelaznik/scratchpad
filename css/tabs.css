@@ -4,6 +4,7 @@ a {
 }
 
 .active {
+  /*transition-property: opacity, left, top, height;*/
   font-weight: bold;
   color: red;
 }
@@ -11,9 +12,21 @@ a {
 .tab-pane {
   display: none;
   color: green;
+  transition: 5s;
 }
 
 .tab-pane.active {
+  opacity: 100;
   display: block;
   color: darksalmon;
+}
+
+.tab-pane.transitioning {
+  /* From IN-ACTIVE to ACTIVE */
+  opacity: 0;
+  display: block;
+}
+
+.tab-pane.active.transitioning {
+  /* From ACTIVE to IN-ACTIVE */
 }

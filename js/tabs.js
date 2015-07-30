@@ -16,15 +16,28 @@ $.Tabs.prototype.setupClickHandler = function() {
 
 $.Tabs.prototype.clickTab = function (e) {
   e.preventDefault();
-  // body...
-  this.$activeTab.removeClass("active");
   var dogList = $(e.delegateTarget);
   var link = $(e.currentTarget);
-
   var clickedTab = dogList.find(link.attr("for"));
-  this.$activeTab = clickedTab.addClass("active");
+  // body...
 
-  this.$el.find('a').removeClass('active');
+  this.$activeTab.removeClass("active");
+  
+  var tabs = this;
+  this.$activeTab.on("transitionend", function(e) {
+    $transitionedTab = tabs.$activeTab;
+    $transitionedTab.removeClass("transitioning");
+    tabs.$activeTab = clickedTab;
+    tabs.$activeTab.addClass("active");
+  });
+  this.$activeTab.addClass("transitioning");
+
+  //
+  // var tabPanes = $('.tab-pane');
+  // tabPanes.removeClass('transitioning');
+
+  var allLinks = this.$el.find('a');
+  allLinks.removeClass('active');
   link.addClass("active");
 };
 

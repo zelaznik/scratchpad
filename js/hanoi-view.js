@@ -27,8 +27,13 @@
         console.log(view.startTowerIdx);
         var endTower = event.currentTarget;
         view.endTowerIdx = $(endTower).attr("column");
-        view.game.move(view.startTowerIdx, view.endTowerIdx);
+        if (!view.game.move(view.startTowerIdx, view.endTowerIdx)) {
+          alert("Invalid move");
+        }
         view.startTowerIdx = null;
+      }
+      if (view.game.isWon()) {
+        $("h2").text("You've won!");
       }
       view.render();
   });

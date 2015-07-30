@@ -16,35 +16,43 @@ $.Tabs.prototype.setupClickHandler = function() {
 
 $.Tabs.prototype.clickTab = function (e) {
   e.preventDefault();
-  // var dogList = $(e.delegateTarget);
-  var link = $(e.currentTarget);
-  var clickedTab = this.$contentTabs.find(link.attr("for"));
-  // body...
+
+  // if (this.transitioning) {
+  //   return;
+  // } else {
+  //   this.transitioning = true;
+  // }
+
+  // Switch active link
+  var activeLink = $(e.currentTarget);
+  activeLink.addClass("active");
+
+
+  var clickedTab = this.$contentTabs.find(activeLink.attr("for"));
 
   var tabs = this;
-  this.$activeTab.on("transitionend", function(e) {
+  this.$activeTab.removeClass("active");
+  this.$activeTab.addClass("transitioning");
+  this.$activeTab.one("transitionend", function(e) {
+
     $transitionedTab = tabs.$activeTab;
     $transitionedTab.removeClass("transitioning");
 
     tabs.$activeTab = clickedTab;
-    tabs.$activeTab.addClass("active");
     tabs.$activeTab.addClass("transitioning");
 
     setTimeout(function() {
       tabs.$activeTab.removeClass("transitioning");
+      tabs.$activeTab.addClass("active");
     },0);
   });
 
-  this.$activeTab.removeClass("active");
-  this.$activeTab.addClass("transitioning");
 
-  //
-  // var tabPanes = $('.tab-pane');
-  // tabPanes.removeClass('transitioning');
+  //this.$contentTabs.find(".tab-pane").removeClass('active');
+  //this.$activeTab.removeClass("active");
+  // this.$activeTab.addClass("transitioning");
 
-  var allLinks = this.$el.find('a');
-  allLinks.removeClass('active');
-  link.addClass("active");
+  console.log("hi");
 };
 
 $.fn.tabs = function () {

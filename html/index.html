@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Towers Of Hanoi</title>
+    <link rel="stylesheet" type="text/css" href="../css/hanoi.css">
+  </head>
+  <body>
+    <center>
+      <h1>Towers Of Hanoi</h1>
+      <div id="entire-game"></div>
+      <h2 id="winner"></h2>
+    </center>
+
+    <script src="../js/jquery-2.1.1.js"></script>
+    <!-- Whackjobs at GithubPages don't understand symlinks... -->
+    <script src="../hanoi-core.js"></script>
+    <script src="../js/hanoi-view.js"></script>
+
+    <script>
+      var $el = $('#entire-game');
+      var view = new Hanoi.View (new Hanoi.Game(), $el);
+    </script>
+  </body>
+</html>

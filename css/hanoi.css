@@ -1,14 +1,15 @@
 li {
   list-style: none;
   float: left;
-  background-color: grey;
   width: 95px;
   height: 95px;
-  border-right: 4px solid black;
   padding-bottom: 0px;
+  border-radius: 20%;
+
 }
 
 ul {
+  position: relative;
   padding-left: 0px;
   padding-bottom: 0px;
   width: 300px;
@@ -18,5 +19,23 @@ ul {
 }
 
 li:hover {
+  background-color: orange;
+}
+
+.size1 {
+  /*width: 20%;*/
+  background-color: red;
+}
+.size2 {
+  /*width: 40%;*/
   background-color: yellow;
+}
+
+.size3 {
+  background-color: green;
+
+}
+
+.size0 {
+  background-color: white;
 }

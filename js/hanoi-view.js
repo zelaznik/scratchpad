@@ -56,13 +56,17 @@
 
 
   View.prototype.render = function() {
+    $(".size0").removeClass("size0");
+    $(".size1").removeClass("size1");
+    $(".size2").removeClass("size2");
+    $(".size3").removeClass("size3");
     var towers = this.game.towers;
-    for (var i=0; i < 9; i++) {
+    for (var i = 0; i < 9; i++) {
       var colIdx = 2 - Math.floor(i/3);
       var rowIdx = i % 3;
       var cell = towers[rowIdx][colIdx];
       var $currentCell = $("li").eq(i);
-      $currentCell.text(cell || "");
+      $currentCell.addClass("size" + (cell || 0));
     }
   };
 

@@ -2,7 +2,7 @@ $.Tabs = function (el) {
   // This function is only called once.
 
   this.$el = $(el); // assume this is tab ul
-  this.$contentTabs = this.$el.find("#content-tabs");
+  this.$contentTabs = $("#content-tabs");
   this.$activeTab = this.$contentTabs.find(".active");
   this.setupClickHandler();
 };
@@ -16,20 +16,26 @@ $.Tabs.prototype.setupClickHandler = function() {
 
 $.Tabs.prototype.clickTab = function (e) {
   e.preventDefault();
-  var dogList = $(e.delegateTarget);
+  // var dogList = $(e.delegateTarget);
   var link = $(e.currentTarget);
-  var clickedTab = dogList.find(link.attr("for"));
+  var clickedTab = this.$contentTabs.find(link.attr("for"));
   // body...
-
-  this.$activeTab.removeClass("active");
 
   var tabs = this;
   this.$activeTab.on("transitionend", function(e) {
     $transitionedTab = tabs.$activeTab;
     $transitionedTab.removeClass("transitioning");
+
     tabs.$activeTab = clickedTab;
     tabs.$activeTab.addClass("active");
+    tabs.$activeTab.addClass("transitioning");
+
+    setTimeout(function() {
+      tabs.$activeTab.removeClass("transitioning");
+    },0);
   });
+
+  this.$activeTab.removeClass("active");
   this.$activeTab.addClass("transitioning");
 
   //

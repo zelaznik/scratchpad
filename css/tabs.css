@@ -17,7 +17,7 @@ a {
 }
 
 .tab-pane.active {
-  opacity: 100;
+  opacity: 1;
   display: block;
   color: darksalmon;
 }
@@ -30,7 +30,7 @@ a {
 
 .tab-pane.active.transitioning {
   /* From ACTIVE to IN-ACTIVE */
-  opacity: 100;
+  opacity: 1;
   display: block;
 }
 

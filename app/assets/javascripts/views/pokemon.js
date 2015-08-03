@@ -6,15 +6,37 @@ Pokedex.Views.Pokemon = Backbone.View.extend({
     this.$toyDetail = this.$el.find('.toy-detail');
 
     this.pokemon = new Pokedex.Collections.Pokemon();
-    this.$pokeList.on('click', 'li.poke-list-item',
-    this.selectPokemonFromList.bind(this));
+    this.$pokeList.on('click', 'li.poke-list-item', this.selectPokemonFromList.bind(this));
+    this.$newPoke.on('submit', function (event) {
+      var json = $(event.currentTarget).serializeJSON();
+      debugger;
+      this.createPokemon(json.pokemon);
+    }.bind(this));
+  },
+
+  createPokemon: function (attributes){
+    var newPokemon = new Pokedex.Models.Pokemon(attributes);
+    var view = this;
+    newPokemon.save({
+      success: function(newPokemon, response) {
+        view.addPokemonToList(newPokemon);
+      },
+      error: function() {
+        //console.log("Error");
+        debugger;
+      }
+    });
+  },
+
+  submitPokemonForm: function(event) {
+
   },
 
   selectPokemonFromList: function(event) {
-      var pokemonId = parseInt($(event.currentTarget).data("id"));
-      var pokemon = this.pokemon.find({id: pokemonId});
-      this.addPokemonToList(pokemon);
-      this.renderPokemonDetail(pokemon);
+    var pokemonId = parseInt($(event.currentTarget).data("id"));
+    var pokemon = this.pokemon.find({id: pokemonId});
+    this.addPokemonToList(pokemon);
+    this.renderPokemonDetail(pokemon);
   },
 
   addPokemonToList: function(pokemon) {

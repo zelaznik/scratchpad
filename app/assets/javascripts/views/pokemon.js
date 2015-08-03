@@ -7,11 +7,12 @@ Pokedex.Views.Pokemon = Backbone.View.extend({
 
     this.pokemon = new Pokedex.Collections.Pokemon();
     this.$pokeList.on('click', 'li.poke-list-item', this.selectPokemonFromList.bind(this));
-    this.$newPoke.on('submit', function (event) {
-      var json = $(event.currentTarget).serializeJSON();
-      debugger;
-      this.createPokemon(json.pokemon);
-    }.bind(this));
+    this.$newPoke.on('submit', this.submitPokemonForm.bind(this));
+  },
+
+  submitPokemonForm: function(event) {
+    var json = $(event.currentTarget).serializeJSON();
+    this.createPokemon(json.pokemon);
   },
 
   createPokemon: function (attributes){
@@ -28,9 +29,6 @@ Pokedex.Views.Pokemon = Backbone.View.extend({
     });
   },
 
-  submitPokemonForm: function(event) {
-
-  },
 
   selectPokemonFromList: function(event) {
     var pokemonId = parseInt($(event.currentTarget).data("id"));

@@ -17401,3 +17401,74 @@ Processing by PokemonController#index as JSON
   [1m[36mPokemon Load (2.3ms)[0m  [1mSELECT "pokemons".* FROM "pokemons"[0m
   Rendered pokemon/index.json.jbuilder (41.4ms)
 Completed 200 OK in 45ms (Views: 41.7ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/?pokemon%5Bname%5D=a%3Bam&pokemon%5Bimage_url%5D=asdf&pokemon%5Bpoke_type%5D=ice&pokemon%5Battack%5D=1&pokemon%5Bdefense%5D=234&pokemon%5Bmoves%5D%5B%5D=asdf&pokemon%5Bmoves%5D%5B%5D=gsf" for ::1 at 2015-08-03 15:10:27 -0700
+Processing by StaticPagesController#root as HTML
+  Parameters: {"pokemon"=>{"name"=>"a;am", "image_url"=>"asdf", "poke_type"=>"ice", "attack"=>"1", "defense"=>"234", "moves"=>["asdf", "gsf"]}}
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 338ms (Views: 337.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-61eb03d725f74237ddb1fb7634f1555984efb4379dd333dd41fe46cdd6cb108c.css?body=1" for ::1 at 2015-08-03 15:10:27 -0700
+
+
+Started GET "/assets/jquery.self-d03a5518f45df77341bdbe6201ba3bfa547ebba8ed64f0ea56bfa5f96ea7c074.js?body=1" for ::1 at 2015-08-03 15:10:27 -0700
+
+
+Started GET "/assets/views/pokemon.self-959a8c2648e2462e733cf20fa90044ebb3dfab49fe00a0d41d92e4ba2eca333d.js?body=1" for ::1 at 2015-08-03 15:10:27 -0700
+
+
+Started GET "/assets/jquery_ujs.self-8e98a7a072a6cee1372d19fff9ff3e6aa1e39a37d89d6f06861637d061113ee7.js?body=1" for ::1 at 2015-08-03 15:10:27 -0700
+
+
+Started GET "/assets/jquery.serializejson.min.self-3ac442468b3826db492ffaaea434d85fd719fdc12bf972b262fb32446a51913d.js?body=1" for ::1 at 2015-08-03 15:10:27 -0700
+
+
+Started GET "/assets/underscore.self-b84a7a5ac0e8afc4f176b95606590bfc56044eeae9286097bdee013a6909fde5.js?body=1" for ::1 at 2015-08-03 15:10:27 -0700
+
+
+Started GET "/assets/backbone.self-0977290d5e68ce40d516cd4dc3965586680024e51399f0ee54ee8ed3a99b1506.js?body=1" for ::1 at 2015-08-03 15:10:27 -0700
+
+
+Started GET "/assets/pokedex.self-0b42779ddc38b09607330d95c0a889894e22431d26dc967c54e74efe016ce8ac.js?body=1" for ::1 at 2015-08-03 15:10:27 -0700
+
+
+Started GET "/assets/models/pokemon.self-24fc69834ccbfc0f335d5a4648d65a77b6acdc5df7fb789ccd9d6b24d6442aa3.js?body=1" for ::1 at 2015-08-03 15:10:27 -0700
+
+
+Started GET "/assets/collections/pokemon.self-aaada19f4e7f8fca4f3e651849e4a82986034ee31a569cab048a2bdf4304ec23.js?body=1" for ::1 at 2015-08-03 15:10:27 -0700
+
+
+Started GET "/assets/application.self-b5567fb0cb73f9d4ecd4fa178bbc995d9efe2b53da5e5bf4ca587adb307de5b1.js?body=1" for ::1 at 2015-08-03 15:10:27 -0700
+
+
+Started GET "/pokemon" for ::1 at 2015-08-03 15:10:27 -0700
+Processing by PokemonController#index as JSON
+  [1m[35mPokemon Load (1.2ms)[0m  SELECT "pokemons".* FROM "pokemons"
+  Rendered pokemon/index.json.jbuilder (43.5ms)
+Completed 200 OK in 55ms (Views: 53.0ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/pokemon" for ::1 at 2015-08-03 15:10:39 -0700
+Processing by PokemonController#create as JSON
+  Parameters: {"name"=>"Michael", "image_url"=>"zelaznik.com/img.jpg", "poke_type"=>"bug", "attack"=>"10", "defense"=>"51", "moves"=>["asdadfs", ";lkj;lkj"], "pokemon"=>{"name"=>"Michael", "attack"=>"10", "defense"=>"51", "poke_type"=>"bug", "moves"=>["asdadfs", ";lkj;lkj"], "image_url"=>"zelaznik.com/img.jpg"}}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "pokemons" ("image_url", "attack", "defense", "name", "poke_type", "moves", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["image_url", "zelaznik.com/img.jpg"], ["attack", 10], ["defense", 51], ["name", "Michael"], ["poke_type", "bug"], ["moves", "[\"asdadfs\", \";lkj;lkj\"]"], ["created_at", "2015-08-03 22:10:39.619624"], ["updated_at", "2015-08-03 22:10:39.619624"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+  Rendered pokemon/show.json.jbuilder (0.4ms)
+Completed 200 OK in 63ms (Views: 57.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/?pokemon%5Bname%5D=Michael&pokemon%5Bimage_url%5D=zelaznik.com%2Fimg.jpg&pokemon%5Bpoke_type%5D=bug&pokemon%5Battack%5D=10&pokemon%5Bdefense%5D=51&pokemon%5Bmoves%5D%5B%5D=asdadfs&pokemon%5Bmoves%5D%5B%5D=%3Blkj%3Blkj" for ::1 at 2015-08-03 15:10:39 -0700
+Processing by StaticPagesController#root as HTML
+  Parameters: {"pokemon"=>{"name"=>"Michael", "image_url"=>"zelaznik.com/img.jpg", "poke_type"=>"bug", "attack"=>"10", "defense"=>"51", "moves"=>["asdadfs", ";lkj;lkj"]}}
+  Rendered static_pages/root.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 36ms (Views: 35.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/pokemon" for ::1 at 2015-08-03 15:10:39 -0700
+Processing by PokemonController#index as JSON
+  [1m[35mPokemon Load (1.1ms)[0m  SELECT "pokemons".* FROM "pokemons"
+  Rendered pokemon/index.json.jbuilder (43.6ms)
+Completed 200 OK in 47ms (Views: 45.3ms | ActiveRecord: 1.1ms)

@@ -1,2 +1,2 @@
-json.extract! @pokemon, :id, :name, :attack, :defense, :poke_type,
-:moves, :image_url, :created_at, :updated_at
+json.partial! 'pokemon', pokemon: @pokemon, display_toys: true
+# json.partial! '../toys/toy', pokemon: @pokemon

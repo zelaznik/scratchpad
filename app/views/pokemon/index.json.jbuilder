@@ -1,2 +1,1 @@
-json.array! @pokemon, :id, :name, :attack, :defense, :poke_type,
-:moves, :image_url, :created_at, :updated_at
+json.array! @pokemon, partial: 'pokemon', as: :pokemon, display_toys: false

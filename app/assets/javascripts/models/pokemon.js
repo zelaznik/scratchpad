@@ -13,6 +13,7 @@ var Pokemon = Pokedex.Models.Pokemon = Backbone.Model.extend({
       this.toys().set(payload.toys);
       delete payload.toys;
     }
+    
     return payload;
   }
 

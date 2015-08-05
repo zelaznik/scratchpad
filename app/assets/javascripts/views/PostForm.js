@@ -19,6 +19,7 @@ Journal.Views.PostForm = Backbone.View.extend({
     var form = $(e.currentTarget).serializeJSON();
     this.model.set(form);
     var url = '#/posts/' + this.model.escape('id');
+    debugger;
     this.model.save({
       success: Backbone.history.navigate(url, {trigger: true})
     });

@@ -37,5 +37,4 @@ Journal.Routers.PostsRouter = Backbone.Router.extend({
     this._swapView(editView);
   }
 
-
 });

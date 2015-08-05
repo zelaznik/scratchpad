@@ -6,7 +6,7 @@ Journal.Views.PostForm = Backbone.View.extend({
   },
 
   events: {
-    "click .submit" : "updatePost"
+    "submit form" : "updatePost"
   },
 
   render: function() {
@@ -15,7 +15,13 @@ Journal.Views.PostForm = Backbone.View.extend({
     return this;
   },
 
-  updatePost: function () {
-    throw "NotImplemented";
+  updatePost: function (e) {
+    var form = $(e.currentTarget).serializeJSON();
+    this.model.set(form);
+    var url = '#/posts/' + this.model.escape('id');
+    this.model.save({
+      success: Backbone.history.navigate(url, {trigger: true})
+    });
+
   }
 });

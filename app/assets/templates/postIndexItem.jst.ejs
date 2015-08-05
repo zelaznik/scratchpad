@@ -1,1 +1,3 @@
-<%= post.escape('title') %><button class="delete-post">Delete</button>
+<a href="<%= '#/posts/' + post.escape('id') %>">
+<%= post.escape('title') %></a>
+<button class="delete-post">Delete</button>

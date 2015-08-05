@@ -1,4 +1,4 @@
 <h2><%= post.escape('title') %></h2>
-<%= post.escape('body') %>
-
+<%= post.escape('body') %><br>
+<a href="<%= '#/posts/' + post.escape('id') + '/edit' %>">Edit</a>
 <p><a href="#">Back to Index</a></p>

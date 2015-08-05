@@ -1,0 +1,10 @@
+<form action="" method="POST">
+  <input type="hidden" name="_method" method="PATCH">
+  <label for="post[title]" id="post_title">Title</label>
+  <input type="text" name="post[title]" id="post_title" value="<%= post.escape('title') %>">
+  <br>
+  <label for="post[body]" id="post_body">Body</label>
+  <textarea name="post[body]" id="post_body"><%= post.escape('body') %></textarea>
+  <br>
+  <button class="submit">Submit</button>
+</form>

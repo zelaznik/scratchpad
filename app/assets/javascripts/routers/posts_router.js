@@ -1,7 +1,8 @@
 Journal.Routers.PostsRouter = Backbone.Router.extend({
   routes: {
     "": "posts",
-    "posts/:id": "displaySinglePost"
+    "posts/:id": "displaySinglePost",
+    "posts/:id/edit": "editSinglePost"
   },
 
   initialize: function(options) {
@@ -28,6 +29,12 @@ Journal.Routers.PostsRouter = Backbone.Router.extend({
     this._currentView = newView;
     this.$rootEl.html(newView.$el);
     newView.render();
+  },
+
+  editSinglePost: function (id) {
+    var model = this.collection.getOrFetch(id);
+    var editView = new Journal.Views.PostForm({model: model});
+    this._swapView(editView);
   }
 
 

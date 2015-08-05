@@ -4,7 +4,12 @@ window.Journal = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    options = {
+      root: $('.root'), // some element of the DOM to render all its goodies into
+      collection: new Journal.Collections.Posts() // a new instance of a collection
+    };
+    new Journal.Routers.PostsRouter(options);
+    Backbone.history.start();
   }
 };
 

@@ -1,7 +1,6 @@
 Journal.Routers.PostsRouter = Backbone.Router.extend({
   routes: {
-    "": "posts",
-    "posts/new" : "createNewPost",
+    "": "createNewPost",
     "posts/:id": "displaySinglePost",
     "posts/:id/edit": "editSinglePost"
   },
@@ -11,13 +10,13 @@ Journal.Routers.PostsRouter = Backbone.Router.extend({
     this.$rootEl = options.root;
   },
 
-  posts: function() {
-    var collection = this.collection.fetch();
-    var postIndexView = new Journal.Views.PostIndex({
-      collection: collection
-    });
-    this._swapView(postIndexView);
-  },
+  // posts: function() {
+  //   var collection = this.collection.fetch();
+  //   var postIndexView = new Journal.Views.PostIndex({
+  //     collection: collection
+  //   });
+  //   this._swapView(postIndexView);
+  // },
 
   displaySinglePost: function(id) {
     var model = this.collection.getOrFetch(id);
@@ -33,8 +32,9 @@ Journal.Routers.PostsRouter = Backbone.Router.extend({
   },
 
   editSinglePost: function (id) {
+    var collection = this.collection;
     var model = this.collection.getOrFetch(id);
-    var editView = new Journal.Views.PostForm({model: model});
+    var editView = new Journal.Views.PostForm({model: model, collection: collection});
     this._swapView(editView);
   },
 
@@ -44,5 +44,4 @@ Journal.Routers.PostsRouter = Backbone.Router.extend({
     var newView = new Journal.Views.PostForm({model: model, collection: collection});
     this._swapView(newView);
   }
-
 });

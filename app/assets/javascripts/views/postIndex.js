@@ -3,14 +3,12 @@ Journal.Views.PostIndex = Backbone.View.extend({
   tagName: "ul",
 
   initialize: function() {
-    this.collection = new Journal.Collections.Posts();
     this.collection.fetch({reset: true});
-    this.listenTo(this.collection, "sync remove reset", this.render);
+    this.listenTo(this.collection, "sync remove reset update change", this.render);
   },
 
   render: function () {
     var view = this;
-
     var content = this.template({posts: this.collection});
     this.$el.html(content);
     this.collection.each(function (post) {
@@ -19,5 +17,10 @@ Journal.Views.PostIndex = Backbone.View.extend({
     });
     return this;
   }
+
+});
+
+
+Journal.Views.Sidebar = Journal.Views.PostIndex.extend({
 
 });

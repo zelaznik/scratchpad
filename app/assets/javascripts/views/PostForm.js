@@ -16,12 +16,17 @@ Journal.Views.PostForm = Backbone.View.extend({
   },
 
   updatePost: function (e) {
-    var form = $(e.currentTarget).serializeJSON();
-    this.model.set(form);
-    var url = '#/posts/' + this.model.escape('id');
-    debugger;
-    this.model.save({
-      success: Backbone.history.navigate(url, {trigger: true})
+    e.preventDefault();
+
+    var newAttrs = $(e.currentTarget).serializeJSON();
+
+    this.model.save(newAttrs, {
+      success: (function() {
+        this.collection.add(this.model);
+        var url = '#/posts/' + this.model.escape('id');
+        Backbone.history.navigate(url, {trigger: true});
+      }).bind(this)
+
     });
 
   }

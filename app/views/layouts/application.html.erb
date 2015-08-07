@@ -8,6 +8,28 @@
 </head>
 <body>
 
+<table>
+  <% if signed_in? %>
+    <tr>
+      <td><%= current_user.username %></td>
+      <td><%= button_to "Sign Out", session_url, method: :delete %></td>
+    </tr>
+  <% else %>
+    <tr>
+      <td><%= link_to "Sign In", new_session_url %></td>
+      <td><%= link_to "Sign Up", new_user_url %></td>
+    </tr>
+  <% end %>
+</table>
+
+<% if flash[:errors] %>
+  <table>
+    <% flash[:errors].each do |msg| %>
+      <tr><td><%= msg %></td></tr>
+    <% end %>
+  </table>
+<% end %>
+
 <%= yield %>
 
 </body>

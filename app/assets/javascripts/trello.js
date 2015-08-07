@@ -4,7 +4,7 @@ window.Trello = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    //valid code here
   }
 };
 

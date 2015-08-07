@@ -4,7 +4,11 @@ window.Trello = {
   Views: {},
   Routers: {},
   initialize: function() {
-    //valid code here
+    var $rootEl = $('.content');
+    var $sidebar = $('.sidebar');
+    var boards = new Trello.Collections.Boards();
+    boards.fetch();
+
   }
 };
 

@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150807181537) do
+ActiveRecord::Schema.define(version: 20150808001204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "board_members", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "board_id",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "board_members", ["board_id"], name: "index_board_members_on_board_id", using: :btree
+  add_index "board_members", ["user_id", "board_id"], name: "index_board_members_on_user_id_and_board_id", unique: true, using: :btree
+  add_index "board_members", ["user_id"], name: "index_board_members_on_user_id", using: :btree
 
   create_table "boards", force: :cascade do |t|
     t.integer  "user_id"
@@ -25,15 +36,37 @@ ActiveRecord::Schema.define(version: 20150807181537) do
 
   add_index "boards", ["user_id", "title"], name: "index_boards_on_user_id_and_title", unique: true, using: :btree
 
+  create_table "card_assignments", force: :cascade do |t|
+    t.integer  "card_id",    null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "card_assignments", ["card_id", "user_id"], name: "index_card_assignments_on_card_id_and_user_id", unique: true, using: :btree
+  add_index "card_assignments", ["card_id"], name: "index_card_assignments_on_card_id", using: :btree
+  add_index "card_assignments", ["user_id"], name: "index_card_assignments_on_user_id", using: :btree
+
   create_table "cards", force: :cascade do |t|
-    t.integer  "list_id",     null: false
-    t.string   "title",       null: false
-    t.string   "description", null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "list_id",                 null: false
+    t.string   "title",                   null: false
+    t.string   "description",             null: false
+    t.integer  "ord",         default: 0, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   add_index "cards", ["list_id"], name: "index_cards_on_list_id", using: :btree
+
+  create_table "items", force: :cascade do |t|
+    t.integer  "card_id",                    null: false
+    t.boolean  "done?",      default: false, null: false
+    t.string   "title",                      null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "items", ["card_id"], name: "index_items_on_card_id", using: :btree
 
   create_table "lists", force: :cascade do |t|
     t.integer  "board_id"
@@ -56,7 +89,12 @@ ActiveRecord::Schema.define(version: 20150807181537) do
 
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
+  add_foreign_key "board_members", "boards"
+  add_foreign_key "board_members", "users"
   add_foreign_key "boards", "users"
+  add_foreign_key "card_assignments", "cards"
+  add_foreign_key "card_assignments", "users"
   add_foreign_key "cards", "lists"
+  add_foreign_key "items", "cards"
   add_foreign_key "lists", "boards"
 end

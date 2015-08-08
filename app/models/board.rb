@@ -6,6 +6,7 @@ class Board < ActiveRecord::Base
   has_many(
     :members,
     through: :board_members,
-    source: :
+    source: :user
   )
+
 end

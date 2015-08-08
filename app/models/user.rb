@@ -4,6 +4,14 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
   attr_reader :password
 
+  has_many :boards
+  has_many :board_members
+  has_many(
+    :followed_boards,
+    through: :board_members,
+    source: :board
+  )
+
   def self.find_by_credentials(username, password)
     user = self.find_by(username: username)
     (user && user.valid_password?(password)) ? user : nil

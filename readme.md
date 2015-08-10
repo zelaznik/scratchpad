@@ -1,7 +1,6 @@
 # Cosmo-connect
 
 [Heroku link][heroku]
-
 [heroku]: http://www.github.com/zelaznik/cosmo_connect_proposal
 
 ## Minimum Viable Product
@@ -14,7 +13,7 @@ The site is seeded with profiles from the sitcom "Seinfeld."  Users can:
 
 ## Design Docs
 * [DB schema (part1)][schema1]
-* [DB schema (part2)][schema1]
+* [DB schema (part2)][schema2]
 
 <!-- The rest of this template is stolen from a sapmle proposal.
 

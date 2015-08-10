@@ -10,16 +10,31 @@ The site is seeded with profiles from the sitcom "Seinfeld."  Users can:
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 - [ ] Create accounts
 - [ ] Create sessions (log in)
+  - [ ] store whether the user is currently logged in
+  - [ ] store the last time they logged out.
+
+- [ ] Make different features based on whether the profile is regular or guest
+  - [ ] Add features for everybody
+    - [ ] select age range of users.
+    - [ ] search for other users within a geographical range.
+    - [ ] select one or more genders the user is interested in
+  - [ ] Add features for users and guests
+    - [ ] Create a guide for user to create new profile.
+
+- [ ] Implementation on the back end.
+    - [ ] create a procedure to convert a zip code into latitude and longitude.
+    - [ ] write function in PostgreSQL to filter the square into a circle.
+  - [ ] select one or more genders they are interested in
+  - [ ] select a number of interests
 
 ## Design Docs
 * [DB schema (part1)][schema1]
 * [DB schema (part2)][schema2]
 
-<!-- The rest of this template is stolen from a sapmle proposal.
-
 [schema1]: ./schema/schema_1of2_312kb.jpg
 [schema2]: ./schema/schema_2of2_312kb.jpg
 
+<!-- The rest of this template is stolen from a sapmle proposal.
 ## Implementation Timeline
 
 ### Phase 1: User Authentication, Blog Creation (~1 day)

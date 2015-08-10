@@ -3,23 +3,41 @@
 [Heroku link][heroku]
 [heroku]: http://www.github.com/zelaznik/cosmo_connect_proposal
 
-## Minimum Viable Product
-Cosmo-connect is a clone of OkCupid built on Rails, PostgreSQL, and Backbone.
-The site is seeded with profiles from the sitcom "Seinfeld."  Users can:
+## Elevator-pitch
+Cosmo-connect is a clone of OkCupid built on Rails, PostgreSQL, and Backbone.  The site is seeded with profiles from the sitcom "Seinfeld."
 
-<!-- This is a Markdown checklist. Use it to keep track of your progress! -->
-- [ ] Create accounts
-- [ ] Create sessions (log in)
+## Minimnum Viable Product
+Users can browse other profiles within their selected ages and geography.  The profile is a mixture of essay categories, selecting interests, and uploading photos.  Users can message each other.  Users can also match with other users.  In the style of Tinder, the other person will only see if you like them after they like you back.
+
+## Skeleton Layout
+- Session Skeleton
+  - [ ] Create accounts
+  - [ ] Create sessions (log in)
   - [ ] store whether the user is currently logged in
   - [ ] store the last time they logged out.
 
 - Make different features based on whether the profile is regular or guest
-  - [ ] Add features for everybody
+  - These features are available even to those who don't create an account:
     - [ ] select age range of users.
     - [ ] search for other users within a geographical range.
     - [ ] select one or more genders the user is interested in
-  - [ ] Add features for users and guests
-    - [ ] Create a guide for user to create new profile.
+    - [ ] Create a parallel criteria set for what the user should be looking for.
+      - For example: Looking for women between ages 23-31 who are interested in men between ages 25 and 35.
+
+  - Here are features for people who create accounts, including guest ones.
+    - Create a guide for user to create new profile.
+      - [ ] Date of Birth
+      - [ ] Location
+      - [ ] Select from list of genders (Male, Female, Other)
+        - [ ] Select one or more genders you're interested in.
+      - [ ] Select one or more hobbies you're interested in.
+        - [ ] Create your own hobby.
+      - [ ] Upload photos.
+        - [ ] Add a description field for each photo.
+        - [ ] Change the order in which photos appear.  The first one is your profile shot.
+
+  - Features solely for guest users.
+    - [ ] Add a random number generator so that fake profiles will like a guest user back randomly.
 
 - Implementation on the back end.
     - [ ] create a procedure to convert a zip code into latitude and longitude.

@@ -69,8 +69,10 @@ Users can browse other profiles within their selected ages and geography.  The p
 
 - Day 1
   - [X] ~~Create DB Migrations~~
-  - [ ] Create ActiveRecord Associations
+  - [X] ~~Create ActiveRecord Associations~~
   - [ ] Seed the database with some profiles
+- Day 1 Bonus?
+  - [ ] Test active record associations.
 
 - Day 2
   - [ ] Get Menu Bar working in Bootstrap

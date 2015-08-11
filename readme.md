@@ -68,7 +68,7 @@ Users can browse other profiles within their selected ages and geography.  The p
 ## Draft Timeline (Week1)
 
 - Day 1
-  - [ ] Create DB Migrations
+  - [X] Create DB Migrations
   - [ ] Create ActiveRecord Associations
   - [ ] Seed the database with some profiles
 

@@ -9,7 +9,7 @@ Cosmo-connect is a clone of OkCupid built on Rails, PostgreSQL, and Backbone.  T
 ## Minimnum Viable Product
 Users can browse other profiles within their selected ages and geography.  The profile is a mixture of essay categories, selecting interests, and uploading photos.  Users can message each other.  Users can also match with other users.  In the style of Tinder, the other person will only see if you like them after they like you back.
 
-## Skeleton Layout
+## Skeleton Blueprint
 - Session Skeleton
   - [ ] Create accounts
   - [ ] Create sessions (log in)
@@ -45,7 +45,38 @@ Users can browse other profiles within their selected ages and geography.  The p
   - [ ] select one or more genders they are interested in
   - [ ] select a number of interests
 
-## Design Docs
+## Draft Timeline (Week1)
+
+- Day 1
+  - [ ] Create DB Migrations
+  - [ ] Create ActiveRecord Associations
+  - [ ] Seed the database with some profiles
+
+- Day 2
+  - [ ] Get Menu Bar working in Bootstrap
+  - [ ] (Learn Bootstrap)
+
+- Day 3
+  - Get other views to work
+    - [ ] User View
+    - [ ] Message Preview View
+    - [ ] Chat Header View
+
+- Day 4
+  - More backend queries.
+    - [ ] Search for Users within certain radius.
+    - [ ] Received Messages
+    - [ ] Sent Messages
+    - [ ] Full Chats w/ Users
+    - [ ] Percent Match: Normalized Hamming Distance
+    - [ ] Percent Enemy: 1 - Percent Match
+
+- Weekend
+  - [ ] Regroup.  Write a project plan for the following week.
+  - [ ] Grieve.
+
+
+##  Design Docs
 * [DB schema (part1)][schema1]
 * [DB schema (part2)][schema2]
 

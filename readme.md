@@ -17,8 +17,11 @@ Users can browse other profiles within their selected ages and geography.  The p
 [schema2]: ./schema/schema_2of2_312kb.jpg
 
 ## Front End Layouts
-* [Misc Views] ./layouts/misc_views.jpg
-* [Chats Views] ./layouts/chats_views.jpg
+* [Misc Views] [misc_views]
+* [Chats Views] [chats_views]
+
+[misc_views]: ./layouts/misc_views.jpg
+[chats_views]: ./layouts/chats_views.jpg
 
 ## Skeleton Blueprint
 - Session Skeleton

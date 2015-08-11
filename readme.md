@@ -18,10 +18,16 @@ Users can browse other profiles within their selected ages and geography.  The p
 
 ## Front End Layouts
 * [Misc Views] [misc_views]
-* [Chats Views] [chats_views]
+* [Chats Template] [chats_template]
+* [Messages Template] [messages_template]
+* [Visitors Template] [visitors_template]
+* [Likes Template] [likes_template]
 
 [misc_views]: ./layouts/misc_views.jpg
-[chats_views]: ./layouts/chats_views.jpg
+[chats_template]: ./layouts/chats_template.jpg
+[messages_template]: ./layouts/messages_templates.jpg
+[visitors_template]: ./layouts/visitors_template.jpg
+[likes_template]: ./layouts/likes_template.jpg
 
 ## Skeleton Blueprint
 - Session Skeleton

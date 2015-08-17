@@ -1,7 +1,7 @@
 # Cosmo-connect
 
 [Heroku link][heroku]
-[heroku]: http://www.github.com/zelaznik/cosmo_connect_proposal
+[heroku]: http://www.cosmo-connect.com
 
 ## Elevator-pitch
 Cosmo-connect is a clone of OkCupid built on Rails, PostgreSQL, and Backbone.  The site is seeded with profiles from the sitcom "Seinfeld."

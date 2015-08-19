@@ -31,9 +31,9 @@ Users can browse other profiles within their selected ages and geography.  The p
 
 ## Skeleton Blueprint
 - Session Skeleton
-  - [ ] Create accounts
-  - [ ] Create sessions (log in)
-  - [ ] store whether the user is currently logged in
+  - [X] ~~Create accounts~~
+  - [X] ~~Create sessions (log in)~~
+  - [X] ~~store whether the user is currently logged in~~
   - [ ] store the last time they logged out.
 
 - Make different features based on whether the profile is regular or guest
@@ -70,17 +70,17 @@ Users can browse other profiles within their selected ages and geography.  The p
 - Day 1
   - [X] ~~Create DB Migrations~~
   - [X] ~~Create ActiveRecord Associations~~
-  - [ ] Seed the database with some profiles
+  - [X] ~~Seed the database with some profiles~~
 - Day 1 Bonus?
-  - [ ] Test active record associations.
+  - [X] ~~Test active record associations.~~
 
 - Day 2
-  - [ ] Get Menu Bar working in Bootstrap
+  - [X] ~~Get Menu Bar working in Bootstrap~~
   - [ ] (Learn Bootstrap)
 
 - Day 3
   - Get other views to work
-    - [ ] User View
+    - [X] ~~User View~~
     - [ ] Message Preview View
     - [ ] Chat Header View
 
@@ -96,7 +96,6 @@ Users can browse other profiles within their selected ages and geography.  The p
 - Weekend
   - [ ] Regroup.  Write a project plan for the following week.
   - [ ] Grieve.
-
 
 
 

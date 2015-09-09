@@ -1,21 +1,25 @@
 def radix(words, i=0):
-  print("Level = %d, words = %r" % (i, words))
-  input("pause")
-  if i >= 26 or len(words) < 2:
+
+  #Get the base cases taken care of
+  if len(words) < 2:
+    return words
+  elif i >= max(len(word) for word in words):
     return words
 
   #Place each of the words in the right bucket
-  buckets = [[] for c in range(26)]
+  #leave a place at the beginning to accomodate blanks.
+  buckets = [[] for c in range(26 + 1)]
   for word in words:
-    pos = ord(word[i]) - ord('a')
+    if i < len(word):
+      pos = ord(word[i]) - ord('a') + 1
+    else:
+      pos = 0
+
     buckets[pos].append(word)
 
-  print("buckets == %r" % (buckets,))
-  input("pause")
-
   #Sort each of the buckets.
-  for i, bucket in enumerate(buckets):
-    buckets[i] = radix(bucket, i+1)
+  for x, bucket in enumerate(buckets):
+    buckets[x] = radix(bucket, i+1)
 
   #Flatten the buckets back into single array
   results = []
@@ -40,4 +44,6 @@ if __name__ == '__main__':
    'better',
    'rest']
 
-  print(radix(words))
+  print("radix == %r" % (radix(words),))
+  print("sorted == %r" % (sorted(words),))
+  input("pause...")

@@ -10,12 +10,13 @@ def radix(words, i=0):
   #leave a place at the beginning to accomodate blanks.
   buckets = [[] for c in range(26 + 1)]
   for word in words:
-    if i < len(word):
+    try:
       pos = ord(word[i]) - ord('a') + 1
-    else:
+      assert pos >= 0 and pos < 26, "Invalid character: %r" % (word[i],)
+    except IndexError:
       pos = 0
-
-    buckets[pos].append(word)
+    finally:
+      buckets[pos].append(word)
 
   #Sort each of the buckets.
   for x, bucket in enumerate(buckets):
@@ -29,21 +30,24 @@ def radix(words, i=0):
 
   return results
 
-if __name__ == '__main__':
-  words = ['it',
-   'was',
-   'the',
-   'best',
-   'of',
-   'times',
-   'it',
-   'was',
-   'the',
-   'worst',
-   'far',
-   'better',
-   'rest']
+words = ['it',
+ 'was',
+ 'the',
+ 'best',
+ 'of',
+ 'times',
+ 'i',
+ 'a',
+ 'aa',
+ 'it',
+ 'was',
+ 'the',
+ 'worst',
+ 'far',
+ 'better',
+ 'rest']
 
-  print("radix == %r" % (radix(words),))
+if __name__ == '__main__':
+  print("radix  == %r" % (radix(words),))
   print("sorted == %r" % (sorted(words),))
   input("pause...")

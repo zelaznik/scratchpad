@@ -83,7 +83,7 @@ cdef class classmethod:
         self.fget = fget
 
     def __get__(self, obj, cls):
-        if not obj:
+        if obj is None:
             return self
 
         if self.wrapped:

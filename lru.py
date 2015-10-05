@@ -3,6 +3,9 @@
 
 
 class DoubleLink(object):
+    ''' Items in a doubly linked list, with one modification.
+        The key is included in addition to the value.
+        This way an item can be plucked from a hash-table.'''
     __slots__ = ('key','val','prev','next')
     def __init__(self, key, val, prev=None, next=None):
         self.key, self.val = key, val

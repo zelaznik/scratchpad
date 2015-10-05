@@ -1,3 +1,7 @@
+''' Provides a least-recently-visited cache implementation in Python.
+'''
+
+
 class DoubleLink(object):
     __slots__ = ('key','val','prev','next')
     def __init__(self, key, val, prev=None, next=None):

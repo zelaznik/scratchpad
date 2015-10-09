@@ -17,13 +17,22 @@ class DoubleLink(object):
         prev = self.prev.key if self.prev else None
         args = (cls, self.key, self.val, prev, next)
         return '%s(key=%r, val=%r, prev=%r, next=%r)' % args
-
+        
 class LRUCache(object):
     def __init__(self, callback, limit=500):
         self.front, self.back = None, None
         self.callback = callback
-        self.limit = limit
+        self.__limit = limit
         self.d = {}
+
+    @property
+    def limit(self):
+        return self.__limit
+        
+    @limit.setter
+    def limit(self, val):
+        self.__limit = val
+        self.trim()
 
     def __len__(self):
         return len(self.d)

@@ -4,6 +4,7 @@
     <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
+
   <body>
     <script type="text/jsx">
       var MenuExample = React.createClass({
@@ -27,7 +28,11 @@
                     style = 'focused';
                   }
 
-                  return <li key={self.props.items.id} className={style} onClick={self.pressedButton.bind(self, idx)}>{m}</li>;
+                  return <li
+                    key={self.props.items.id}
+                    className={style}
+                    onClick={self.pressedButton.bind(self, idx)}
+                    >{m}</li>;
                 })}
               </ul>
 
@@ -38,7 +43,7 @@
 
       });
 
-      var MenuItems = ['Home','Services','About','Contact Us']
+      var MenuItems = ['Home','Services','About','Contact Us'];
 
       React.render(<MenuExample items={MenuItems}/>, document.body);
     </script>

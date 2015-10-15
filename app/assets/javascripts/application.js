@@ -16,8 +16,8 @@
 //= require underscore
 //= require backbone
 //= require_tree ./utils
-//= require progress
 //= require_tree ../templates
+//= require progress
 //= require_tree ./models
 //= require_tree ./collections
 //= require_tree ./views

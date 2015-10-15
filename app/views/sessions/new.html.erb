@@ -1,1 +1,6 @@
-<%= render 'shared/user' %>
+<%= render 'shared/user',
+  header: 'Sign In',
+  url: session_url,
+  user: @user,
+  submit: 'Sign In'
+%>

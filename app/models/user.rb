@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
 
   private
   def ensure_session_token
-    self.session_token ||= new_token
+    self.session_token ||= self.class.new_token
   end
 
   def self.new_token

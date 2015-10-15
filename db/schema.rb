@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151015071815) do
+ActiveRecord::Schema.define(version: 20151015072307) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,16 @@ ActiveRecord::Schema.define(version: 20151015071815) do
   end
 
   add_index "companies", ["name"], name: "index_companies_on_name", unique: true, using: :btree
+
+  create_table "correspondences", force: :cascade do |t|
+    t.integer  "application_id"
+    t.integer  "medium_id"
+    t.boolean  "is_received"
+    t.text     "notes"
+    t.binary   "attachment"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "media", force: :cascade do |t|
     t.string   "name"
@@ -66,4 +76,6 @@ ActiveRecord::Schema.define(version: 20151015071815) do
   add_foreign_key "applications", "companies"
   add_foreign_key "applications", "statuses"
   add_foreign_key "applications", "users"
+  add_foreign_key "correspondences", "applications"
+  add_foreign_key "correspondences", "media"
 end

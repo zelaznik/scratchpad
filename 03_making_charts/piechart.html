@@ -50,6 +50,13 @@
           prevAngle = angle;
         }
 
+        // draw centered text
+        c.fillStyle = 'black';
+        c.font = '24pt sans-serif';
+        var text = 'Sales Data from 2025';
+        var metrics = c.measureText(text);
+        c.fillText(text, 250-metrics.width/2, 400);
+
 
       </script>
   </body>

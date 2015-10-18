@@ -94,13 +94,12 @@ function drawPlayerBullets(c) {
       xoff+10,0+9,8,8, // source
       bullet.x, bullet.y, bullet.width, bullet.height // destination
     );
-    //c.fillRect(bullet.x, bullet.y, bullet.width,bullet.height);
 	}
 }
 
 // =========== background ============
 function drawBackground(c) {
-	c.fillStyle = "grey";
+	c.fillStyle = "black";
 	c.fillRect(0,0,can.width,can.height);
 }
 
@@ -137,8 +136,14 @@ function createEnemyBullet(enemy) {
 function drawEnemyBullets(c) {
     for(var i in enemyBullets) {
         var bullet = enemyBullets[i];
-        c.fillStyle = "yellow";
-        c.fillRect(bullet.x, bullet.y , bullet.width, bullet.height);
+        //c.fillStyle = "yellow";
+        //c.fillRect(bullet.x, bullet.y , bullet.width, bullet.height);
+        var xoff = (bullet.counter%9)*12 + 1;
+        var yoff = 1;
+        c.drawImage(bomb_image,
+          xoff, yoff, 11, 11, // source
+          bullet.x, bullet.y, bullet.width, bullet.height // destination
+        );
     }
 }
 

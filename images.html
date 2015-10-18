@@ -11,16 +11,16 @@
       var canvas = document.getElementById('canvas');
       var ctx = canvas.getContext('2d');
       var img = new Image();
+      img.src = 'assets/images/smiley.png';
       img.addEventListener('load', function () {
         ctx.drawImage(img, 0, 0); //normal drawing
 
         ctx.drawImage(img,
-          0,0,66,66, // source, (x, y, w, h)
+          0,0,70,70, // source, (x, y, w, h)
           100, 0, 100, 100 // destination (x, y, w, h)
         );
-        
+
       }, false);
-      img.src = 'assets/images/easy.jpg';
 
 
     </script>

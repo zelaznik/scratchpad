@@ -7,7 +7,13 @@
       var c = canvas.getContext('2d');
 
       c.fillStyle = 'gray';
-      c.fillRect(0,0,500,500)
+      c.fillRect(0,0,500,500);
+
+      c.fillStyle = 'blue';
+      for (var i=0; i<data.length; i++) {
+        var dp = data[i];
+        c.fillRect(25 + 100*i, 500-dp*5 - 30, 50, dp*5);
+      }
     </script>
   </body>
 </html>

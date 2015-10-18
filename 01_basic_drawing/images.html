@@ -13,9 +13,7 @@
       var img = new Image();
       img.src = 'assets/images/smiley.png';
       img.addEventListener('load', function () {
-        for (var i=0; i<5; i++) {
-          ctx.drawImage(img, 0, 0); //normal drawing
-        }
+        ctx.drawImage(img, 0, 0); //normal drawing
 
         ctx.drawImage(
           img,

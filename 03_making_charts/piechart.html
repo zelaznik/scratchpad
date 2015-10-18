@@ -33,6 +33,13 @@
           // draw the pie slice
           c.fillStyle = colors[i];
 
+          // fill with a radial gradient
+          var grad = c.createRadialGradient(250,250,10,250,250,100);
+          grad.addColorStop(0, '#cccccc');
+          grad.addColorStop(1, colors[i]);
+          c.fillStyle = grad;
+
+
           // create a path
           c.beginPath();
           c.moveTo(250, 250);  // start at center

@@ -7,14 +7,15 @@
       var canvas = document.getElementById('canvas');
       var c = canvas.getContext('2d');
 
-      c.fillStyle = 'gray';
+      // draw background
+      c.fillStyle = 'white';
       c.fillRect(0,0,500,500);
 
       // add bar graphs
       c.fillStyle = 'blue';
       for (i=0; i<data.length; i++) {
         var dp = data[i];
-        c.fillRect(25 + 100*i, 500-dp*5 - 30, 50, dp*5);
+        c.fillRect(40 + 100*i, 460-dp*5, 50, dp*5);
       }
 
       // draw axis lines
@@ -25,6 +26,12 @@
       c.lineTo(30, 460);
       c.lineTo(490,460);
       c.stroke();
+
+      // add labels
+      var labels = ['JAN','FEB','MAR','APR','MAY'];
+      for (i=0; i<5; i++) {
+        c.fillText(labels[i], 50+100*i, 475);
+      }
 
       // draw text and vertical lines
       c.fillStyle = 'black';

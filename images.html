@@ -1,0 +1,22 @@
+<html>
+  <body>
+    <p>Try Loading Image Directly:</p>
+    <img src='assets/images/easy.jpg' alt="Direct Image?">
+    <p>End Direct Loading</p>
+
+    <br>
+    <p>Begin Canvas</p>
+    <canvas width="800" height="600" id="canvas"></canvas>
+    <script>
+      var canvas = document.getElementById('canvas');
+      var ctx = canvas.getContext('2d');
+      var img = new Image();
+      img.addEventListener('load', function () {
+        ctx.drawImage(img, 0, 0);
+      }, false);
+      img.src = 'assets/images/easy.jpg';
+
+
+    </script>
+  </body>
+</html>

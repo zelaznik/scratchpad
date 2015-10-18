@@ -3,10 +3,11 @@
     <canvas width="800" height="600" id="canvas"></canvas>
     <script>
       var canvas = document.getElementById('canvas');
-      var c = canvas.getContext('2d');
+      var ctx = canvas.getContext('2d');
 
-      // Your code here.
-
+      ctx.fillStyle = "black";
+      ctx.font = "italic "+96+"pt Arial ";
+      ctx.fillText("this is text", 20,150);
 
     </script>
   </body>

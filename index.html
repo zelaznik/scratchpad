@@ -13,8 +13,8 @@
 
     <script>
       var canvas = document.getElementById('game-canvas');
-      canvasEl.height = window.Asteroids.Game.DIM_Y;
-      canvasEl.width = window.Asteroids.Game.DIM_X;
+      canvas.height = window.Asteroids.Game.DIM_Y;
+      canvas.width = window.Asteroids.Game.DIM_X;
       var ctx = canvas.getContext('2d');
       var game = new window.Asteroids.Game();
       new window.Asteroids.GameView(game, ctx).start();

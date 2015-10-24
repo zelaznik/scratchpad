@@ -19,6 +19,7 @@ body {
 .navbar-inverse .navbar-nav > .open > a:hover,
 .navbar-inverse .navbar-nav > .open > a:focus {
   color: #fff;
+  font-color: #000000;
   background: #1A237E;
 }
 
@@ -26,6 +27,12 @@ body {
 .navbar-inverse .navbar-nav .open .dropdown-menu {
   background-color: #303F9F;
   color: #eeeeee;
+}
+
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover,
+.navbar-inverse .navbar-nav .open .dropdown-menu {
+  background-color: #303F9F;
+  color: #000000;
 }
 
 .row-header {

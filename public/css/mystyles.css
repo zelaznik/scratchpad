@@ -2,6 +2,11 @@ body {
   align: center;
   padding: 50px 0px 0px 0px;
   z-index: 0;
+  background: #AFAFAF;
+}
+
+main {
+  background: white;
 }
 
 .navbar-inverse {
@@ -48,7 +53,6 @@ body {
 }
 
 .row-footer {
-  background-color: #AfAfAf;
   margin: 0px auto;
   padding: 20px 0px 20px 0px;
 }

@@ -1,1 +1,7 @@
-    <%= render 'navbar', active: 'about' %>
+<%= render 'navbar', active: 'about' %>
+
+<div class="container">
+  <div class="row">
+    <%= render 'breadcrumbs', parents: ['home'], child: 'About Us' %>
+  </div> <!-- End Row -->
+</div> <!-- End Container -->

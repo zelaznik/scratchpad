@@ -9,6 +9,8 @@
   </style>
   <body>
     <canvas width="400" height="173" id="game-canvas"></canvas>
+    <br>
+    <img src="http://localhost:3000/images/seinfeld_logo.png">
 
     <script>
       var canvas = document.getElementById('game-canvas');
@@ -20,18 +22,21 @@
       c.fillRect(0, 0, 1000, 1000);
 
       patterns = [
-        {yOffset: 3, color: 'black'},
-        {yOffset: 0, color: '#ffd000'}
+        {dX:3, dY: 3, color: 'black'},
+        {dX:0, dY: 0, color: '#ffd000'}
       ]
-
       patterns.forEach (function(p) {
-        c.linewidth = 0;
+        c.strokeStyle = p.color;
         c.beginPath();
-        c.ellipse(.50*w, .50*h + p.yOffset, .45*w, .33*h, -tau/20, 0, tau); //-1.0/12 * tau, 0, tau);
+        c.ellipse(.50*w + p.dX, .50*h + p.dY, .45*w, .37*h, -tau/35, 0, tau); //-1.0/12 * tau, 0, tau);
         c.fillStyle = p.color;
         c.fill();
         c.stroke();
       });
+
+
+
+
     </script>
   </body>
 </html>

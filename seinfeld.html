@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>Seinfeld Logo</title>
+  </head>
+  <style>
+    body {
+      background-color: #ccccff;
+    }
+  </style>
+  <body>
+    <canvas width="400" height="173" id="game-canvas"></canvas>
+
+    <script>
+      var canvas = document.getElementById('game-canvas');
+      var tau = 2.0 * Math.PI;
+      var h = canvas.height = 174; //window.Asteroids.Game.DIM_Y;
+      var w = canvas.width = 400; //window.Asteroids.Game.DIM_X;
+      var c = canvas.getContext('2d');
+      c.fillStyle = 'white';
+      c.fillRect(0, 0, 1000, 1000);
+
+      patterns = [
+        {yOffset: 5, color: 'black'},
+        {yOffset: 0, color: 'yellow'}
+      ]
+
+      patterns.forEach (function(p) {
+        //c.strokeStyle = 'white';
+        c.beginPath();
+        c.ellipse(.50*w, .50*h + p.yOffset, .45*w, .33*h, -tau/20, 0, tau); //-1.0/12 * tau, 0, tau);
+        c.fillStyle = p.color;
+        c.fill();
+        c.stroke();
+      });
+    </script>
+  </body>
+</html>

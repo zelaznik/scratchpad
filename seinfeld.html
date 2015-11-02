@@ -34,7 +34,23 @@
         c.stroke();
       });
 
+      var fontSize = 65;
+      c.font = 'italic ' + fontSize + 'pt Gloucester MT Extra Condensed';
+      c.fillStyle = 'red';
 
+      var p = {x0: 50, y0: 75};
+      c.fillText("Cosmo",p.x0,p.y0);
+      c.fillText("Connect",p.x0+20,p.y0+fontSize);
+
+      // patterns = [
+      //   {dX:1, dY:1, color: 'black'},
+      //   {dX:0, dY:0, color: 'red'}
+      // ]
+      // patterns.forEach (function(p) {
+        // c.font = '30pt Gloucester MT Extra Condensed';
+        // c.fillStyle = p.color;
+        // c.fillText("CosmoConnect",0+p.dX,20+p.dY);
+      // })
 
 
     </script>

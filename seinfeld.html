@@ -18,41 +18,33 @@
       var h = canvas.height = 174; //window.Asteroids.Game.DIM_Y;
       var w = canvas.width = 400; //window.Asteroids.Game.DIM_X;
       var c = canvas.getContext('2d');
-      c.fillStyle = 'white';
-      c.fillRect(0, 0, 1000, 1000);
 
       patterns = [
-        {dX:3, dY: 3, color: 'black'},
-        {dX:0, dY: 0, color: '#ffd000'}
+        {dx:3, dy: 3, color: 'black'},
+        {dx:0, dy: 0, color: '#ffd000'}
       ]
       patterns.forEach (function(p) {
         c.strokeStyle = p.color;
         c.beginPath();
-        c.ellipse(.50*w + p.dX, .50*h + p.dY, .45*w, .37*h, -tau/35, 0, tau); //-1.0/12 * tau, 0, tau);
+        c.ellipse(.50*w + p.dx, .50*h + p.dy, .45*w, .37*h, -tau/35, 0, tau); //-1.0/12 * tau, 0, tau);
         c.fillStyle = p.color;
         c.fill();
         c.stroke();
       });
 
+      patterns = [
+        {dx:1, dy:1, color:'black'},
+        {dx:0, dy:0, color:'red'}
+      ]
+
       var fontSize = 65;
+      var origin = {x: 50, y: 75};
       c.font = 'italic ' + fontSize + 'pt Gloucester MT Extra Condensed';
-      c.fillStyle = 'red';
-
-      var p = {x0: 50, y0: 75};
-      c.fillText("Cosmo",p.x0,p.y0);
-      c.fillText("Connect",p.x0+20,p.y0+fontSize);
-
-      // patterns = [
-      //   {dX:1, dY:1, color: 'black'},
-      //   {dX:0, dY:0, color: 'red'}
-      // ]
-      // patterns.forEach (function(p) {
-        // c.font = '30pt Gloucester MT Extra Condensed';
-        // c.fillStyle = p.color;
-        // c.fillText("CosmoConnect",0+p.dX,20+p.dY);
-      // })
-
-
+      patterns.forEach  (function(p) {
+        c.fillStyle = p.color;
+        c.fillText("Cosmo",origin.x+p.dx,origin.y+p.dy);
+        c.fillText("Connect",origin.x+20+p.dx,origin.y+p.dy+fontSize);
+      });
     </script>
   </body>
 </html>

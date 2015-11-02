@@ -60,7 +60,7 @@
         </div>
         <div class="col-xs-12 col-sm-9 col-sm-pull-3">
           <div class="media">
-            <div class="media-middle media-right">
+            <div class="media-left media-middle">
               <a href="#">
                 <img class="media-object img-thumbnail"
                      src="img/alberto.png" alt="Alberto Somayya">
@@ -98,13 +98,17 @@
 
             <div class="form-group">
               <label for="date_and_time" class="col-sm-4 control-label">Date and Time</label>
-              <div class="col-sm-4">
-                <div class="input-group">
+              <div class="col-sm-3">
+                <div class="input-group right-inner-addon">
                   <input type="text" class="form-control" name="date" placeholder="Date">
+                  <i class="glyphicon glyphicon-calendar"></i>
                 </div> <!-- End .input-group -->
               </div>
-              <div class="col-sm-4">
-                <input type="text" class="form-control" name="time" placeholder="Time">
+              <div class="col-sm-3">
+                <div class="input-group right-inner-addon">
+                  <input type="text" class="form-control" name="time" placeholder="Time">
+                  <i class="glyphicon glyphicon-time"></i>
+                </div>
               </div>
             </div> <!-- End .form-group -->
 
@@ -114,17 +118,18 @@
               </div>
             </div> <!-- End .form-group -->
 
+            <div class="form-group">
+              <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>Warning</strong>: Please
+                <a href="tel:+85212345678" class="alert-link">
+                call</a> us to reserve for more than six guests.
+              </div>
+            </div>
+
           </form>
-
-          <div class="alert alert-warning alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <strong>Warning</strong>: Please
-            <a href="tel:+85212345678" class="alert-link">
-            call</a> us to reserve for more than six guests.
-          </div>
-
         </div>
     </div>
 

@@ -8,7 +8,7 @@
     }
   </style>
   <body>
-    <canvas width="400" height="173" id="game-canvas"></canvas>
+    <canvas width="400" height="174" id="game-canvas"></canvas>
     <br>
     <img src="http://localhost:3000/images/seinfeld_logo.png">
 
@@ -47,7 +47,10 @@
         c.fillText("Connect",origin.x+20+p.dx,origin.y+p.dy+fontSize);
       });
 
-
+      // // Save the results to file
+      // var d = c.toDataUrl('cosmo_connect_logo.png');
+      // var w = window.open('about:blank', 'image from canvas');
+      // w.document.write("<img src='"+d+"' alt='from canvas' />");
 
     </script>
   </body>

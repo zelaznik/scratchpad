@@ -1,6 +1,6 @@
 <nav id="#main-navbar" class="navbar navbar-inverse navbar-fixed-top navbar-default" role="navigation">
-  <div class="container">
-
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed"
               data-toggle="collapse" data-target="#navbar"
@@ -14,10 +14,10 @@
       <a class="navbar-brand" href="index.html">
         <img src="img/logo.png" height=30 width=41>
       </a>
-    </div> <!-- End navbar-header -->
+    </div>
 
-
-    <div id="navbar" class="navbar-collapse collapse">
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar" data-toggle="collapse">
       <ul class="nav navbar-nav">
         <li class="<%= (active=='home') ? 'active' : '' %>"><a href="index.html">
           <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
@@ -54,25 +54,7 @@
             <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
             Scratchpad</a></li>
         <% end %>
-      </ul> <!-- End Navbar items on the left -->
-
-
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <form class="navbar-form navbar-right" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" name="username" placeholder="Email">
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="password" placeholder="Password">
-            </div>
-            <div class="checkbox">
-              <label><input type="checkbox"><span style="color:white"> Remember me</span></label>
-            </div>
-            <button type="submit" class="btn btn-info">Sign In</button>
-          </form>
-        </li>
       </ul>
-    </div><!--/.nav-collapse -->
-  </div>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 </nav>

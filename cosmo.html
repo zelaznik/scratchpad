@@ -22,7 +22,8 @@
       var shade = {bright: '#ffd000', dim: '#c49f00'};
 
       // Draw the overlapping ellipses
-      patterns = [
+      var patterns = [
+        {dx:2, dy:6, color:'black'},
         {dx:1, dy: 3, color: 'black'},
         {dx:0, dy: 0, color: shade.bright}
       ]
@@ -37,8 +38,11 @@
       });
 
       // Draw the overlapping text
+      var patterns = [];
+
       patterns = [
-        {dx:1, dy:1, color:'black'},
+        {dx:2, dy:4, color:'black'},
+        {dx:1, dy:2, color:'black'},
         {dx:0, dy:0, color:'red'}
       ]
       var fontSize = 90;

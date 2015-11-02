@@ -20,12 +20,12 @@
       c.fillRect(0, 0, 1000, 1000);
 
       patterns = [
-        {yOffset: 5, color: 'black'},
-        {yOffset: 0, color: 'yellow'}
+        {yOffset: 3, color: 'black'},
+        {yOffset: 0, color: '#ffd000'}
       ]
 
       patterns.forEach (function(p) {
-        //c.strokeStyle = 'white';
+        c.linewidth = 0;
         c.beginPath();
         c.ellipse(.50*w, .50*h + p.yOffset, .45*w, .33*h, -tau/20, 0, tau); //-1.0/12 * tau, 0, tau);
         c.fillStyle = p.color;

@@ -19,10 +19,12 @@
       var w = canvas.width = 400; //window.Asteroids.Game.DIM_X;
       var c = canvas.getContext('2d');
 
+      var shade = {bright: '#ffd000', dim: '#c49f00'};
+
       // Draw the overlapping ellipses
       patterns = [
         {dx:1, dy: 3, color: 'black'},
-        {dx:0, dy: 0, color: '#ffd000'}
+        {dx:0, dy: 0, color: shade.bright}
       ]
       patterns.forEach (function(p) {
         c.strokeStyle = p.color;
@@ -47,10 +49,10 @@
         c.fillText("Connect",origin.x+20+p.dx,origin.y+p.dy+fontSize);
       });
 
-      // // Save the results to file
-      // var d = c.toDataUrl('cosmo_connect_logo.png');
-      // var w = window.open('about:blank', 'image from canvas');
-      // w.document.write("<img src='"+d+"' alt='from canvas' />");
+      // Save the results to file
+      var d = c.toDataUrl('cosmo_connect_logo_bright.png');
+      var w = window.open('about:blank', 'image from canvas');
+      w.document.write("<img src='"+d+"' alt='from canvas' />");
 
     </script>
   </body>

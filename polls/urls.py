@@ -14,6 +14,9 @@ urlpatterns = [
     url(r'^(?P<question_id>[0-9]+)/vote/$', views.vote, name='vote'),
 
     # ex: /polls/5/detail/
-    url(r'^(?P<question_id>[0-9]+)/detail/$', views.detail, name='detail'),
+    url(r'^(?P<question_id>[0-9]+)/$', views.detail, name='detail'),
+
+    # added the word 'specifics'
+    url(r'^specifics/(?P<question_id>[0-9]+)/$', views.detail, name='detail'),
 
 ]

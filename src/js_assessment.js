@@ -19,28 +19,23 @@
       // are sorted by key in order to ensure that two
       // JSON strings from equivalent objects compare equal.
 
-      // Something of type "object" could be
-      // either an array or key-value
-      if (typeof(item) === "object") {
-        if (item.length >= 0) {
-          // Let's handle the case of an array
-          var converted = [];
-          for (var i=0; i<item.length; i++) {
-            converted.push(json_prepare(item[i]));
-          }
-
-        } else {
-          // Let's handle the case of an object aka "a hash"
-          var converted = {};
-          Object.keys(item).sort().forEach(function(k) {
-            converted[k] = json_prepare(item[k]);
-          });
-        }
-
-      } else {
+      if (typeof(item) !== "object") {
         // Handle everything else such as string, numbers, undefined, etc
         // This is actually our base case, way at the bottom of the method
-        converted = item;
+        var converted = item;
+
+      } else if (item.length >= 0) {
+        // Let's handle the case of an array
+        var converted = [];
+        for (var i=0; i<item.length; i++) {
+          converted.push(json_prepare(item[i]));
+        }
+      } else {
+        // Let's handle the case of an object aka "a hash"
+        var converted = {};
+        Object.keys(item).sort().forEach(function(k) {
+          converted[k] = json_prepare(item[k]);
+        });
       }
 
       return converted;
@@ -53,7 +48,6 @@
       return JSON.stringify(window.JSA.json_prepare(item));
     };
 
-
     window.JSA.memoize = function memoize(func) {
       var cache = {};
       return function() {
@@ -62,9 +56,7 @@
         if (key in cache) {
           return cache[key];
         }
-        var value = func.apply(this, args);
-        cache[key] = value;
-        return value;
+        return cache[key] = func.apply(this, args);
       };
     }
 

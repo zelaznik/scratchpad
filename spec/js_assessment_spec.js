@@ -55,6 +55,18 @@ describe("sorted_json", function() {
     expect(as_obj_z).not.toEqual(as_obj_Z);
   });
 
+  it ("turns objects into key value pairs in json", function() {
+    function Point(x, y) {
+      this.x = x;
+      this.y = y;
+    }
+    var j_4_3 = JSA.sorted_json(new Point(4, 3));
+    var j_12_5 = JSA.sorted_json(new Point(12, 5));
+
+    expect(j_4_3).toEqual('{"x":4,"y":3}')
+    expect(j_12_5).toEqual('{"x":12,"y":5}')
+  });
+
   it ("sorts the key value pairs", function() {
     var as_obj = {z:5, y:4, x:3, a: [3,1,4]};
     var as_str = '{"a":[3,1,4],"x":3,"y":4,"z":5}';

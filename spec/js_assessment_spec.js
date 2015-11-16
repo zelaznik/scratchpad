@@ -62,9 +62,10 @@ describe("sorted_json", function() {
     }
     var j_4_3 = JSA.sorted_json(new Point(4, 3));
     var j_12_5 = JSA.sorted_json(new Point(12, 5));
+    j_12_5.z = 
 
-    expect(j_4_3).toEqual('{"x":4,"y":3}')
-    expect(j_12_5).toEqual('{"x":12,"y":5}')
+    expect(j_4_3).toEqual('{"x":4,"y":3}');
+    expect(j_12_5).toEqual('{"x":12,"y":5}');
   });
 
   it ("sorts the key value pairs", function() {
@@ -213,6 +214,59 @@ describe("memoize", function () {
     memoFunc();
     memoFunc();
     expect(funcCounter[key]).toEqual(1);
+  });
+
+});
+
+describe("LRUCache", function() {
+  var LRUCache = window.JSA.LRUCache;
+
+  function keyOrder(cache) {
+    var keys = [];
+    var node = cache.back;
+    while (node) {
+      if (node.key) {
+        keys.push(node.key);
+      }
+      node = node.next;
+    }
+    return keys;
+  }
+
+  it("enforces a minimum size of two", function() {
+    expect(function() {
+      return new LRUCache(0);
+    }).toThrow('Minimum size of LRU Cache is 2');
+  });
+
+  it("sets the correct value to blank cache", function() {
+    var c = new LRUCache(4);
+    c.set('x', 3);
+    expect(c.get('x').key).toEqual('x');    
+    expect(c.get('x').value).toEqual(3);
+  });
+
+  it("updates the front after only one insert", function() {
+    var c = new LRUCache(4);
+    c.set('x', 3);
+    expect(c.front.key).toEqual('x');
+    expect(c.front.value).toEqual(3);
+  });
+
+  it("does NOT update the back after only one insert", function() {
+    var c = new LRUCache(4);
+    c.set('x', 3);
+    expect(c.back.key).toBeUndefined();
+  });
+
+  it("key order reflects insertion order", function() {
+    var c = new LRUCache(4);
+    c.set('x', 3);
+    c.set('y', 4);
+    c.set('z', 5);
+    c.set('a', 0);
+    c.set('b', 1);
+    expect(keyOrder(c)).toEqual(['y','z','a','b']);
   });
 
 });

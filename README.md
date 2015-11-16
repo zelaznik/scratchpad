@@ -1,31 +1,8 @@
-**Do not share this repo or post it publicly. We will take violations
-very seriously.**
+# JavaScript Memoizing Function
 
-# JavaScript Assessment
+This is a pattern for memoizing and arbitrary set of function calls
+regardless of the arguments passed or the context to which it is bound.
 
-This assessment aims to evaluate your knowledge of JavaScript's basic
-and intermediate features.
+Please see the jasmine specs for documentation.
 
-Topics covered:
-
-* Basic syntax: function declarations, objects, etc.
-* Callbacks
-* Closures
-* Context (`this`)
-* Prototypal inheritance
-* The module pattern
-
-You have **80 minutes**. The specs live in the `spec/` directory. Your
-code should go in the `src/` directory in the file provided. Problems
-are described in that file.
-
-How to run the specs: open up `SpecRunner.html` in a browser.
-
-## Submission
-
-* Rename the directory `first_name_last_name`.
-* ZIP it (you can use OS X's built in zip functionality)
-* Use `.zip`
-* Upload to progress tracker (http://progress.appacademy.io/).
-
-**Copyright App Academy, please do not post online**
+MIT License

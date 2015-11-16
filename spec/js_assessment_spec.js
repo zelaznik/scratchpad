@@ -74,7 +74,6 @@ describe("Memoize Function Decorator", function () {
   beforeEach(function() {
     funcCounter = {};
     var returnArgs = window.JSA.returnArgs = function() {
-      var args = [].slice(arguments);
       var key = {}
       key.this = this;
       key.args = [].slice.call(arguments);

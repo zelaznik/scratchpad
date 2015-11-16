@@ -1,57 +1,57 @@
-  describe("inherits", function() {
-    var Animal, Dog, dog;
+// describe("inherits", function() {
+//   var Animal, Dog, dog;
 
-    beforeEach(function() {
-      Animal = function() {
-        this.name = "Yogi";
-      };
+//   beforeEach(function() {
+//     Animal = function() {
+//       this.name = "Yogi";
+//     };
 
-      Animal.prototype.makeNoise = function() { return "Hi!"; };
+//     Animal.prototype.makeNoise = function() { return "Hi!"; };
 
-      Dog = function() {
-        this.age = 7;
-      };
-      Dog.inherits(Animal);
+//     Dog = function() {
+//       this.age = 7;
+//     };
+//     Dog.inherits(Animal);
 
-      Dog.prototype.bark = function() { return "Woof!"; };
+//     Dog.prototype.bark = function() { return "Woof!"; };
 
-      dog = new Dog();
-    });
+//     dog = new Dog();
+//   });
 
-    it("should properly set up the prototype chain between a child and parent", function() {
-      expect(dog.bark()).toBe("Woof!");
-      expect(dog.makeNoise()).toBe("Hi!");
-    });
+//   it("should properly set up the prototype chain between a child and parent", function() {
+//     expect(dog.bark()).toBe("Woof!");
+//     expect(dog.makeNoise()).toBe("Hi!");
+//   });
 
-    it("should not call the parent's constructor function", function() {
-      expect(dog.name).toBeUndefined();
-    });
+//   it("should not call the parent's constructor function", function() {
+//     expect(dog.name).toBeUndefined();
+//   });
 
-    it("should maintain separation of parent and child prototypes", function() {
-      Dog.prototype.someProperty = 42;
-      var animal = new Animal();
-      expect(animal.someProperty).toBeUndefined();
-      expect(animal.makeNoise()).toBe("Hi!");
-    });
+//   it("should maintain separation of parent and child prototypes", function() {
+//     Dog.prototype.someProperty = 42;
+//     var animal = new Animal();
+//     expect(animal.someProperty).toBeUndefined();
+//     expect(animal.makeNoise()).toBe("Hi!");
+//   });
 
-    it("should properly work for longer inheritance chains", function() {
-      var Poodle = function() { this.name = "Bill"; };
-      Poodle.inherits(Dog);
+//   it("should properly work for longer inheritance chains", function() {
+//     var Poodle = function() { this.name = "Bill"; };
+//     Poodle.inherits(Dog);
 
-      Poodle.prototype.shave = function() { return "Brrr."; };
+//     Poodle.prototype.shave = function() { return "Brrr."; };
 
-      var poodle = new Poodle();
-      expect(poodle.name).toBe("Bill");
-      expect(poodle.shave()).toBe("Brrr.");
-      expect(poodle.makeNoise()).toBe("Hi!");
-      expect(poodle.bark()).toBe("Woof!");
-    });
-  });
+//     var poodle = new Poodle();
+//     expect(poodle.name).toBe("Bill");
+//     expect(poodle.shave()).toBe("Brrr.");
+//     expect(poodle.makeNoise()).toBe("Hi!");
+//     expect(poodle.bark()).toBe("Woof!");
+//   });
+// });
 
 describe("sorted_json", function() {
   it ("sorts the key value pairs", function() {
     var as_obj = {z:5, y:4, x:3, a: [3,1,4]};
-    as_str = '{"a":[3,1,4],"x":3,"y":4,"z":5}';
+    var as_str = '{"a":[3,1,4],"x":3,"y":4,"z":5}';
     expect(JSA.sorted_json(as_obj)).toEqual(as_str);
   });
 
@@ -61,8 +61,81 @@ describe("sorted_json", function() {
     expect(w_float).toEqual(w_int);
   });
 
+  it ("handles nested mixtures of kv pairs and arrays", function() {
+    var as_obj = {z:5, y:4, x:3, a: [3,1,[4,[1,{5:9}]]]};
+    var as_str = '{"a":[3,1,[4,[1,{"5":9}]]],"x":3,"y":4,"z":5}';
+    expect(JSA.sorted_json(as_obj)).toEqual(as_str);
+  });
+
 });
 
+describe("memoize", function () {
+  function fib(n) {
+    var a = 0; var b = 1; var tmp = 0;
+    for (var i = 1; i < n; i++) {
+      tmp = b + a; a=b; b=tmp;
+    }
+    return a;
+  }
+  var memoFib = window.JSA.memoize(fib);
+  var funcCounter;
+
+  beforeEach(function() {
+    funcCounter = {};
+    var returnArgs = window.JSA.returnArgs = function() {
+      var args = [].slice(arguments);
+      var key = {}
+      key.this = this;
+      key.args = [].slice.call(arguments);
+      key = JSON.stringify(key);
+      if (key in funcCounter) {
+        funcCounter[key] += 1;
+      } else {
+        funcCounter[key] = 1;
+      }
+      return key;
+    }
+
+    window.JSA.memoArgs = window.JSA.memoize(returnArgs);
+
+    function Foo() {}
+    Foo.prototype.returnArgs = returnArgs;
+  });
+
+  it("returns same fibinacci results as original function for 1-10", function () {
+    for (var i=1; i<= 10; i++) {
+      expect(fib(i)).toEqual(memoFib(i));
+    }
+
+  });
+
+  it ("returns the same result for regular and memoized '*args' functions", function () {
+    var orig = window.JSA.returnArgs(3,1,4,'a',5);
+    var memo = window.JSA.memoArgs(3,1,4,'a',5);
+    expect(orig).toEqual(memo);
+  });
+
+  it ("expect orig func to have been called oned after 3 identical memoized calls", function () {
+    var key = window.JSA.memoArgs(3,1,4);
+    window.JSA.memoArgs(3,1,4);
+    window.JSA.memoArgs(3,1,4);
+    expect(funcCounter[key]).toEqual(1);
+  });    
+
+  it ("returns the same result for regular and memoized '*args' functions", function () {
+    var orig = window.JSA.returnArgs(3,1,4,'a',5);
+    var memo = window.JSA.memoArgs(3,1,4,'a',5);
+    expect(orig).toEqual(memo);
+  });
+
+});
+
+
+/*
+########################################################
+          LEGACY CODE COPIED FROM ASSESSMENT 5
+########################################################
+*/
 
 if (false) {
   describe("longestSymmetricSubstring", function () {
@@ -79,37 +152,7 @@ if (false) {
     });
   });
 
-  describe("myEach", function () {
-    var originalArray = null;
-    var spy = {
-      callback: function (el) { return el; }
-    };
 
-    it("calls the callback passed to it", function () {
-      spyOn(spy, "callback");
-      [1, 2, 3].myEach(spy.callback);
-      expect(spy.callback).toHaveBeenCalled();
-    });
-
-    it("yields each element to the callback", function () {
-      spyOn(spy, "callback");
-      [1, 2].myEach(spy.callback);
-      expect(spy.callback).toHaveBeenCalledWith(1);
-      expect(spy.callback).toHaveBeenCalledWith(2);
-    });
-
-    it("does NOT call the built-in Array#forEach method", function () {
-      originalArray = ["original array"];
-      spyOn(originalArray, "forEach");
-      originalArray.myEach(spy.callback);
-      expect(originalArray.forEach).not.toHaveBeenCalled();
-    });
-
-    it("is chainable and returns the original array", function () {
-      originalArray = ["original array"];
-      expect(originalArray.myEach(spy.callback)).toBe(originalArray);
-    });
-  });
 
   describe("mergeSort", function () {
     var array =  [1, 5, 2, 4, 3];

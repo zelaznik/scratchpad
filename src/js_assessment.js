@@ -53,4 +53,18 @@
       return JSON.stringify(window.JSA.json_prepare(item));
     }
 
+    window.JSA.memoize = function memoize(func) {
+      var cache = {};
+      return function() {
+        var args = Array.prototype.slice.call(arguments);
+        var key = window.JSA.sorted_json([this, args]);
+        if (key in cache) {
+          return cache[key];
+        }
+        var value = func.apply(this, args);
+        cache[key] = value;
+        return value;
+      };
+    }
+
 })();

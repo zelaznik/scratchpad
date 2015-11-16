@@ -31,7 +31,7 @@
     } else {
       var node = {
         key: key, value: value,
-        prev: this.front, next: {}
+        prev: this.front
       };
       this.cache[key] = node;
       this.length++;
@@ -40,11 +40,12 @@
     // Set the current node to the front
     // Remove any nodes from the back
     node.prev = this.front;
-    this.front.next = node;
+    node.prev.next = node;
     this.front = node;
     while (this.length > this.limit) {
       var old = this.back;
-      this.back = this.back.next;
+      this.back = old.next;
+      delete this.back.prev;
       delete this.cache[old.key];
       this.length--;
     }

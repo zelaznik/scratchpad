@@ -5,16 +5,12 @@ describe("inherits", function() {
     Animal = function() {
       this.name = "Yogi";
     };
-
     Animal.prototype.makeNoise = function() { return "Hi!"; };
-
     Dog = function() {
       this.age = 7;
     };
     Dog.inherits(Animal);
-
     Dog.prototype.bark = function() { return "Woof!"; };
-
     dog = new Dog();
   });
 
@@ -233,6 +229,45 @@ describe("LRUCache", function() {
     return keys;
   }
 
+  var c;
+  beforeEach(function() {
+    // Make an LRU Cache of size four.
+    // insert five items into it.
+    c = new LRUCache(4);
+    c.set('x', 3);
+    c.set('y', 4);
+    c.set('z', 5);
+    c.set('a', 0);
+    c.set('b', 1);
+  });
+
+  it ("maintains its maximum size", function() {
+    c.set('steve', 'awesome');
+    expect(c.length).toEqual(4);
+  });
+
+  it("front.next has no key or value", function() {
+    expect(c.front.next).toBeUndefined();
+  });
+
+  it("back.prev has no key or value", function() {
+    expect(c.back.prev).toBeUndefined();
+  });
+
+  it ("iteration order reflects push order", function() {
+    var node = c.back;
+    expect(node.key).toEqual('y'); node = node.next;
+    expect(node.key).toEqual('z'); node = node.next;
+    expect(node.key).toEqual('a'); node = node.next;
+    expect(node.key).toEqual('b');
+  });
+
+  it("updated values move to the front", function() {
+    c.set('z', 26);
+    expect(c.front.key).toEqual('z');
+    expect(c.front.value).toEqual(26);
+  });
+
   it("enforces a minimum size of two", function() {
     expect(function() {
       return new LRUCache(0);
@@ -242,7 +277,7 @@ describe("LRUCache", function() {
   it("sets the correct value to blank cache", function() {
     var c = new LRUCache(4);
     c.set('x', 3);
-    expect(c.get('x').key).toEqual('x');    
+    expect(c.get('x').key).toEqual('x');
     expect(c.get('x').value).toEqual(3);
   });
 
@@ -260,6 +295,16 @@ describe("LRUCache", function() {
   });
 
   it("key order reflects insertion order", function() {
+    var c = new LRUCache(4);
+    c.set('x', 3);
+    c.set('y', 4);
+    c.set('z', 5);
+    c.set('a', 0);
+    c.set('b', 1);
+    expect(keyOrder(c)).toEqual(['y','z','a','b']);
+  });
+
+  it("updated cache moves up to the top", function() {
     var c = new LRUCache(4);
     c.set('x', 3);
     c.set('y', 4);

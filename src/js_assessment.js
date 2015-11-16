@@ -51,7 +51,8 @@
       // turn it into a JSON string.  Now we have a key
       // with which to memoize any generic function call
       return JSON.stringify(window.JSA.json_prepare(item));
-    }
+    };
+
 
     window.JSA.memoize = function memoize(func) {
       var cache = {};

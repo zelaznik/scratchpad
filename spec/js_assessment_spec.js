@@ -192,7 +192,7 @@ describe("Memoize Function Decorator", function () {
       expect(v_7_24.memoAbs.bind(v_3_4)(12)).toEqual(13);
     });
 
-    it ("binding to cause duplicate calls to original function", function () {
+    it ("binding to cause duplicate calls to original function", function() {
       var v_3_4 = new Vector(3, 4);
       var v_7_24 = new Vector(7, 24);
       var origFunc = v_3_4.returnArgs.bind(v_7_24);
@@ -202,7 +202,7 @@ describe("Memoize Function Decorator", function () {
       expect(funcCounter[key]).toEqual(3);
     });
 
-    it ("binding NOT to cause duplicate calls to memoized function", function () {
+    it ("binding NOT to cause duplicate calls to memoized function", function() {
       var v_3_4 = new Vector(3, 4);
       var v_7_24 = new Vector(7, 24);
       var memoFunc = v_3_4.memoArgs.bind(v_7_24);

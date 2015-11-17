@@ -13,6 +13,15 @@ def log_choose(n, k)
   log_fact(n) - log_fact(k) - log_fact(n-k)
 end
 
+class YuFengError < ArgumentError
+end
+
+describe "bullshit tests" do
+  it "raises YuFengError" do
+    expect {raise YuFengError }.to raise_error(ArgumentError)
+  end
+end
+
 describe "ones_places" do
   describe "handles large numbers" do
     it "ones_places(2**50 - 1) yields range [49,48,47,...2,1,0]" do
@@ -42,6 +51,9 @@ describe "ones_places" do
     it "ones_places(0) returns []" do
       expect(ones_places(0)).to eq([])
     end
+    it "raises error with negative numbers" do
+      expect {ones_places(-1)}.to raise_error(ArgumentError)
+    end
   end
 end
 
@@ -51,7 +63,7 @@ describe "n_choose_k" do
   end
 
   it "n choose zero equals 1" do
-    expect(n_choose_k(5,0)).to eq (1)
+    expect(n_choose_k(5,0)).to eq(1)
   end
 
   it "n choose 1 equals n" do
@@ -74,14 +86,14 @@ describe 'ones needed' do
   it "ones_needed(2, 3) == [2]" do
     expect(ones_needed(2,3)).to eq([2])
   end
-  it "ones_needed(1, 5) == [0,3]" do 
+  it "ones_needed(1, 5) == [0,3]" do
     expect(ones_needed(1, 5)).to eq([0,3])
   end
   it "ones_needed(0, 8) == [1,4]" do
     expect(ones_needed(0, 8)).to eq([1,4])
   end
 end
- 
+
 describe 'matches in range' do
   it 'matches_less_than(3, 1) == 1' do
     expect(matches_in_range(3,1)).to eq(1)

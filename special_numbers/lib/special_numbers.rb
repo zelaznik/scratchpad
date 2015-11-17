@@ -1,11 +1,11 @@
 def ones_places(n)
-  ''' Returns an array in desc order
+  ''' Returns an array of powers of 2 that in desc order
       such that n == (arr.map {|x| 2**x}).inject(:+)
   '''
-  if (n == 0)
-    []
-  elsif n < 0
-    raise ValueError("n must be positive")
+  if n < 0
+    raise ArgumentError.new("n must be positive")
+  elsif n == 0
+    final = []
   else
     max_digit = Math.log(n, 2).floor + 1
     b = ("%#{max_digit}b" % n).reverse
@@ -14,18 +14,14 @@ def ones_places(n)
     (0...b.length).each do |i|
       final << i if b[i].to_i == 1
     end
-
-    final.reverse
   end
+
+  final.reverse
 end
 
 def n_choose_k(n, k)
-  numerator = 1
-  denominator = 1
-  (0...k).each do |i|
-    numerator *= (n-i)
-    denominator *= (k-i)
-  end
+  numerator = n.downto(n-k+1).inject(1, :*)
+  denominator = k.downto(1).inject(1, :*)
   (numerator/denominator).round(0).floor
 end
 
@@ -39,8 +35,8 @@ end
 
 def matches_in_range(offset, digits)
   get_ones = ones_needed(offset, digits)
-  total = get_ones.map {|k| n_choose_k(digits, k)}.inject(:+)
-  total || 0
+  combos = get_ones.map {|k| n_choose_k(digits, k)}
+  combos.inject(0, :+)
 end
 
 def matches_less_than(num)

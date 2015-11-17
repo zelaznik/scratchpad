@@ -1,27 +1,6 @@
 require 'rspec'
 require 'special_numbers'
 
-# For approximating large factorials
-def log_fact(n)
-  ''' Provides a large number approximation for factorial
-      https://en.wikipedia.org/wiki/Stirling%27s_approximation
-  '''
-  0.5*Math.log(2*Math::PI*n) + n*Math.log(n) - n
-end
-
-def log_choose(n, k)
-  log_fact(n) - log_fact(k) - log_fact(n-k)
-end
-
-class YuFengError < ArgumentError
-end
-
-describe "bullshit tests" do
-  it "raises YuFengError" do
-    expect {raise YuFengError }.to raise_error(ArgumentError)
-  end
-end
-
 describe "ones_places" do
   describe "handles large numbers" do
     it "ones_places(2**50 - 1) yields range [49,48,47,...2,1,0]" do

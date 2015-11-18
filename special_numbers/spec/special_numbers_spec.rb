@@ -106,15 +106,22 @@ describe "matches_less_than" do
 end
 
 describe "matches_between" do
-  it "does not include zero" do
-    expect(matches_between(0, 5)).to eq(3)
+
+  describe "does not include zero" do
+    it "matches_between(0,5) == 3" do
+      expect(matches_between(0, 5)).to eq(3)
+    end
   end
 
-  it "includes the lower bound" do
-    expect(matches_between(2, 3)).to eq(1)
+  describe "includes the lower bound" do
+    it "matches_bewteen(2,3) == 1" do
+      expect(matches_between(2, 3)).to eq(1)
+    end
   end
 
-  it "includes the upper bound" do
-    expect(matches_between(1,2)).to eq(2)
+  describe "includes the upper bound" do
+    it "matches_between(1,2) == 1" do
+      expect(matches_between(1,2)).to eq(2)
+    end
   end
 end

@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <title>Seinfeld Logo</title>
+  </head>
+  <style>
+    body {
+      background-color: #ccccff;
+    }
+  </style>
+  <body>
+    <canvas width="400" height="174" id="game-canvas"></canvas>
+    <br>
+    <img src="http://localhost:3000/images/seinfeld_logo.png">
+
+    <script>
+      var canvas = document.getElementById('game-canvas');
+      var tau = 2.0 * Math.PI;
+      var h = canvas.height = 174; //window.Asteroids.Game.DIM_Y;
+      var w = canvas.width = 400; //window.Asteroids.Game.DIM_X;
+      var c = canvas.getContext('2d');
+
+      var shade = {bright: '#ffd000', dim: '#c49f00'};
+
+      // Draw the overlapping ellipses
+      patterns = [
+        {dx:1, dy: 3, color: 'black'},
+        {dx:0, dy: 0, color: shade.bright}
+      ]
+      patterns.forEach (function(p) {
+        c.strokeStyle = p.color;
+        c.beginPath();
+        c.ellipse(.50*w + p.dx, .50*h + p.dy, .45*w, .37*h, -tau/35, 0, tau); //-1.0/12 * tau, 0, tau);
+        c.fillStyle = p.color;
+        c.fill();
+        c.stroke();
+      });
+
+      // Draw the overlapping text
+      patterns = [
+        {dx:1, dy:1, color:'black'},
+        {dx:0, dy:0, color:'red'}
+      ]
+      var fontSize = 65;
+      var origin = {x: 50, y: 75};
+      c.font = 'italic ' + fontSize + 'pt Gloucester MT Extra Condensed';
+      patterns.forEach  (function(p) {
+        c.fillStyle = p.color;
+        c.fillText("Cosmo",origin.x+p.dx,origin.y+p.dy);
+        c.fillText("Connect",origin.x+20+p.dx,origin.y+p.dy+fontSize);
+      });
+
+      // Save the results to file
+      var d = c.toDataUrl('cosmo_connect_logo_bright.png');
+      var w = window.open('about:blank', 'image from canvas');
+      w.document.write("<img src='"+d+"' alt='from canvas' />");
+
+    </script>
+  </body>
+</html>

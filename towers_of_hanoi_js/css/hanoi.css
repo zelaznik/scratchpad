@@ -1,0 +1,41 @@
+li {
+  list-style: none;
+  float: left;
+  width: 95px;
+  height: 95px;
+  padding-bottom: 0px;
+  border-radius: 20%;
+
+}
+
+ul {
+  position: relative;
+  padding-left: 0px;
+  padding-bottom: 0px;
+  width: 300px;
+  height: 300px;
+  border-left: 4px solid black;
+  border-bottom: 4px solid black;
+}
+
+li:hover {
+  background-color: orange;
+}
+
+.size1 {
+  /*width: 20%;*/
+  background-color: red;
+}
+.size2 {
+  /*width: 40%;*/
+  background-color: yellow;
+}
+
+.size3 {
+  background-color: green;
+
+}
+
+.size0 {
+  background-color: white;
+}

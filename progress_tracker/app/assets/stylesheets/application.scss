@@ -1,0 +1,75 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/***********************************
+    BODY STRYLING
+************************************/
+
+.body {
+  padding: 0px;
+}
+
+/***********************************
+    NAVIGATION BAR STYLING
+************************************/
+
+$blueUp : #3746BF;
+$blueDn : #252F7F;
+
+.navbar {
+  background-color: #00F; /* fallback color, place your own */
+
+  /* Gradients for modern browsers, replace as you see fit */
+  background-image: -moz-linear-gradient(top, $blueUp, $blueDn);
+  background-image: -ms-linear-gradient(top, $blueUp, $blueDn);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($blueUp), to($blueDn));
+  background-image: -webkit-linear-gradient(top, $blueUp, $blueDn);
+  background-image: -o-linear-gradient(top, $blueUp, $blueDn);
+  background-image: linear-gradient(top, $blueUp, $blueDn);
+  background-repeat: repeat-x;
+  border-radius: 0;
+  border: None;
+  color: red;
+
+  /* IE8-9 gradient filter */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0031E5', endColorstr='#002BCC', GradientType=0);
+}
+
+$navDefault: #cccccc;
+$navHover: #ffffff;
+
+.navbar-default .navbar-nav > li > a {
+  color: $navDefault;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: $navHover;
+}
+
+.navbar-default a.navbar-brand {
+  color: $navDefault;
+}
+
+.navbar-default a.navbar-brand:hover {
+  color: $navHover;
+}
+
+.navbar .hover {
+  background-color: #F00;
+}

@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <script src="https://fb.me/react-0.13.3.js"></script>
+    <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+
+  <body>
+    <script type="text/jsx">
+      var MenuExample = React.createClass({
+
+        getInitialState: function () {
+          return {focused: 0};
+        },
+
+        pressedButton: function(idx) {
+          // The click handler will update the state with the index of the foc
+          this.setState({focused: idx});
+        },
+
+        render: function() {
+          var self = this;
+          return (
+            <div>
+              <ul>{self.props.items.map(function(m, idx) {
+                  var style = '';
+                  if (self.state.focused === idx) {
+                    style = 'focused';
+                  }
+
+                  return <li
+                    key={self.props.items.id}
+                    className={style}
+                    onClick={self.pressedButton.bind(self, idx)}
+                    >{m}</li>;
+                })}
+              </ul>
+
+              <p>Selected: {self.props.items[self.state.focused]}</p>
+            </div>
+          );
+        }
+
+      });
+
+      var MenuItems = ['Home','Services','About','Contact Us'];
+
+      React.render(<MenuExample items={MenuItems}/>, document.body);
+    </script>
+  </body>
+
+</html>

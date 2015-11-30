@@ -1,0 +1,32 @@
+<html>
+  <body>
+    <canvas width=500 height=500 id="canvas"></canvas>
+    <script>
+      var canvas = document.getElementById('canvas');
+      var ctx = canvas.getContext('2d');
+
+      // draw rect the first time
+      ctx.fillStyle = 'red';
+      ctx.fillRect(0,0,400,100);
+
+      // create triangle path
+      ctx.beginPath();
+      ctx.moveTo(200, 50);
+      ctx.lineTo(250,150);
+      ctx.lineTo(150,150);
+      ctx.closePath();
+
+      // stroke the triangle so we can see input
+      ctx.lineWidth = 10;
+      ctx.stroke();
+
+      // use triangle as clip
+      ctx.clip();
+      //fill rect in again with yellow
+      ctx.fillStyle = 'yellow';
+      ctx.fillRect(0,10,400,100);
+
+
+    </script>
+  </body>
+</html>

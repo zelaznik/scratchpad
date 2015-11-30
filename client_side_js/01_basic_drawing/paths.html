@@ -1,0 +1,21 @@
+<html>
+  <body>
+    <canvas width="800" height="600" id="canvas"></canvas>
+    <script>
+      var canvas = document.getElementById('canvas');
+      var c = canvas.getContext('2d');
+
+      c.fillStyle = 'red';
+      c.beginPath();
+      c.moveTo(10,30);
+      c.bezierCurveTo(50, 90, 159, -30, 200, 30);
+      c.lineTo(200, 90);
+      c.lineTo(10, 90);
+      c.closePath();
+      c.fill()
+      c.lineWitdh = 4;
+      c.strokeStyle = 'black';
+      c.stroke();
+    </script>
+  </body>
+</html>

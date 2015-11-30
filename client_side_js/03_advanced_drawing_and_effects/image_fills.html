@@ -1,0 +1,26 @@
+<html>
+  <body>
+    <canvas width=500 height=500 id="canvas"></canvas>
+    <script>
+      // Setting canvas and background
+      var canvas = document.getElementById('canvas');
+      var ctx = canvas.getContext('2d');
+      ctx.fillStyle = 'grey';
+      ctx.fillRect(0,0,500,500);
+
+      // Add first pattern
+      var img = new Image();
+      img.src = 'assets/images/pat1.png';
+      img.addEventListener('load', function () {
+        var pat1 = ctx.createPattern(img, 'repeat');
+        ctx.fillStyle = pat1;
+        ctx.fillRect(0,0,100,100);
+
+        var pat2 = ctx.createPattern('img', 'repeat-y');
+        ctx.fillStyle = pat2;
+        ctx.translate(200, 50);
+        ctx.fillRect(0,0,100,100);
+      });
+    </script>
+  </body>
+</html>

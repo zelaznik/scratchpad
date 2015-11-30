@@ -1,0 +1,46 @@
+<html>
+  <body>
+    <canvas width="500" height="500" id="canvas"></canvas>
+    <script>
+      var i=0;
+      var data = [16, 68,20,30,54];
+      var canvas = document.getElementById('canvas');
+      var c = canvas.getContext('2d');
+
+      // draw background
+      c.fillStyle = 'white';
+      c.fillRect(0,0,500,500);
+
+      // add bar graphs
+      c.fillStyle = 'blue';
+      for (i=0; i<data.length; i++) {
+        var dp = data[i];
+        c.fillRect(40 + 100*i, 460-dp*5, 50, dp*5);
+      }
+
+      // draw axis lines
+      c.fillStyle = 'black';
+      c.lineWidth = 2.0;
+      c.beginPath();
+      c.moveTo(30, 10);
+      c.lineTo(30, 460);
+      c.lineTo(490,460);
+      c.stroke();
+
+      // add labels
+      var labels = ['JAN','FEB','MAR','APR','MAY'];
+      for (i=0; i<5; i++) {
+        c.fillText(labels[i], 50+100*i, 475);
+      }
+
+      // draw text and vertical lines
+      c.fillStyle = 'black';
+      for (i=0; i<6;i++) {
+        c.fillText((5-i)*20 + '', 4, i*80+60);
+        c.beginPath();
+        c.moveTo(25, i*80+60);
+      }
+
+    </script>
+  </body>
+</html>

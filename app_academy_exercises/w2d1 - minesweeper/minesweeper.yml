@@ -1,0 +1,574 @@
+--- !ruby/object:Game
+player: !ruby/object:Player {}
+board: !ruby/object:Board
+  mine_count: 10
+  col_count: 9
+  row_count: 9
+  grid:
+  - - !ruby/object:Tile
+      is_mine: false
+      col: 0
+      row: 0
+      flag_state: 1
+      visible: true
+      touching_mines: 0
+    - !ruby/object:Tile
+      is_mine: false
+      col: 1
+      row: 0
+      flag_state: 0
+      visible: true
+      touching_mines: 0
+    - !ruby/object:Tile
+      is_mine: false
+      col: 2
+      row: 0
+      flag_state: 0
+      visible: true
+      touching_mines: 0
+    - !ruby/object:Tile
+      is_mine: false
+      col: 3
+      row: 0
+      flag_state: 0
+      visible: true
+      touching_mines: 2
+    - !ruby/object:Tile
+      is_mine: true
+      col: 4
+      row: 0
+      flag_state: 1
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 5
+      row: 0
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 6
+      row: 0
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 7
+      row: 0
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 8
+      row: 0
+      flag_state: 0
+      visible: false
+      touching_mines: 
+  - - !ruby/object:Tile
+      is_mine: false
+      col: 0
+      row: 1
+      flag_state: 0
+      visible: true
+      touching_mines: 0
+    - !ruby/object:Tile
+      is_mine: false
+      col: 1
+      row: 1
+      flag_state: 0
+      visible: true
+      touching_mines: 0
+    - !ruby/object:Tile
+      is_mine: false
+      col: 2
+      row: 1
+      flag_state: 0
+      visible: true
+      touching_mines: 0
+    - !ruby/object:Tile
+      is_mine: false
+      col: 3
+      row: 1
+      flag_state: 0
+      visible: true
+      touching_mines: 2
+    - !ruby/object:Tile
+      is_mine: true
+      col: 4
+      row: 1
+      flag_state: 1
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 5
+      row: 1
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 6
+      row: 1
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 7
+      row: 1
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 8
+      row: 1
+      flag_state: 0
+      visible: false
+      touching_mines: 
+  - - !ruby/object:Tile
+      is_mine: false
+      col: 0
+      row: 2
+      flag_state: 0
+      visible: true
+      touching_mines: 1
+    - !ruby/object:Tile
+      is_mine: false
+      col: 1
+      row: 2
+      flag_state: 0
+      visible: true
+      touching_mines: 2
+    - !ruby/object:Tile
+      is_mine: false
+      col: 2
+      row: 2
+      flag_state: 0
+      visible: true
+      touching_mines: 1
+    - !ruby/object:Tile
+      is_mine: false
+      col: 3
+      row: 2
+      flag_state: 0
+      visible: true
+      touching_mines: 2
+    - !ruby/object:Tile
+      is_mine: false
+      col: 4
+      row: 2
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 5
+      row: 2
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: true
+      col: 6
+      row: 2
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 7
+      row: 2
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 8
+      row: 2
+      flag_state: 0
+      visible: false
+      touching_mines: 
+  - - !ruby/object:Tile
+      is_mine: true
+      col: 0
+      row: 3
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 1
+      row: 3
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: true
+      col: 2
+      row: 3
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 3
+      row: 3
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 4
+      row: 3
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 5
+      row: 3
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 6
+      row: 3
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 7
+      row: 3
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 8
+      row: 3
+      flag_state: 0
+      visible: false
+      touching_mines: 
+  - - !ruby/object:Tile
+      is_mine: false
+      col: 0
+      row: 4
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 1
+      row: 4
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 2
+      row: 4
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: true
+      col: 3
+      row: 4
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 4
+      row: 4
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 5
+      row: 4
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 6
+      row: 4
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 7
+      row: 4
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 8
+      row: 4
+      flag_state: 0
+      visible: false
+      touching_mines: 
+  - - !ruby/object:Tile
+      is_mine: false
+      col: 0
+      row: 5
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 1
+      row: 5
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 2
+      row: 5
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 3
+      row: 5
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: true
+      col: 4
+      row: 5
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 5
+      row: 5
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 6
+      row: 5
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 7
+      row: 5
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 8
+      row: 5
+      flag_state: 0
+      visible: false
+      touching_mines: 
+  - - !ruby/object:Tile
+      is_mine: false
+      col: 0
+      row: 6
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 1
+      row: 6
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 2
+      row: 6
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 3
+      row: 6
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 4
+      row: 6
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 5
+      row: 6
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 6
+      row: 6
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 7
+      row: 6
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: true
+      col: 8
+      row: 6
+      flag_state: 0
+      visible: false
+      touching_mines: 
+  - - !ruby/object:Tile
+      is_mine: false
+      col: 0
+      row: 7
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: true
+      col: 1
+      row: 7
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 2
+      row: 7
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 3
+      row: 7
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 4
+      row: 7
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 5
+      row: 7
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 6
+      row: 7
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: true
+      col: 7
+      row: 7
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 8
+      row: 7
+      flag_state: 0
+      visible: false
+      touching_mines: 
+  - - !ruby/object:Tile
+      is_mine: false
+      col: 0
+      row: 8
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 1
+      row: 8
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 2
+      row: 8
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 3
+      row: 8
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 4
+      row: 8
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 5
+      row: 8
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 6
+      row: 8
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 7
+      row: 8
+      flag_state: 0
+      visible: false
+      touching_mines: 
+    - !ruby/object:Tile
+      is_mine: false
+      col: 8
+      row: 8
+      flag_state: 0
+      visible: false
+      touching_mines: 

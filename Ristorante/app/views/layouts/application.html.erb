@@ -1,0 +1,59 @@
+<html>
+<head>
+
+  <title>Ristorante Con Fusion</title>
+  <meta charset='utf-8'>
+  <meta http-equiv="expires" content="0">
+  <meta http-equiv='X-UA-Compatible' content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap-social.css" rel="stylesheet">
+  <link href="css/mystyles.css" rel="stylesheet">
+
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+  <style>
+    .row-content {
+      margin-bottom: 15px;
+    }
+
+    input[type=radio] {
+      margin: 11px;
+    }
+
+    .right-inner-addon {
+      position: relative;
+    }
+
+    .right-inner-addon i {
+      position: absolute;
+      right: 0px;
+      padding: 10px 10px;
+      z-index: 2;
+    }
+
+    .right-inner-addon input {
+      padding-right: 30px;
+    }
+  </style>
+
+  <main>
+    <%= yield %>
+  </main>
+
+  <%= render 'footer' %>
+
+  <!-- Include these script tags at the bottom of the body -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <!-- Include all the compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>

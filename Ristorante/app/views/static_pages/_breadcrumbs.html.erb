@@ -1,0 +1,23 @@
+<% paths = {
+  'home' => {'name' => 'Home', 'href' => 'index.html'}
+} %>
+
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="breadcrumb">
+      <% parents.each do |parent| %>
+        <% path = paths[parent] %>
+        <%= "<li>
+                <a href='#{path['href']}'>#{path['name']}</a>
+            </li>".html_safe %>
+      <% end %>
+      <li class="active"><%= child %></li>
+    </ul>
+
+    <div>
+       <h3><%= child %></h3>
+       <hr>
+    </div>
+
+  </div>
+</div>

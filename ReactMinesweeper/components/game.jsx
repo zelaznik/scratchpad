@@ -11,13 +11,14 @@ var Game = React.createClass({
 
   render: function () {
     return(
-      <div>
-        <p>My name is {this.state.name}.</p>
-        <p>This is my game&apos;s board.</p>
-        <Board game={this}/>
-      </div>
+      <Board board={this.state.board}
+             rowCt={this.props.rowCt}
+             colCt={this.props.colCt}
+             updateGame={'Can\'t pass a function as a prop.'}
+      />
     );
-  }
+  },
 });
+
 
 module.exports = Game;

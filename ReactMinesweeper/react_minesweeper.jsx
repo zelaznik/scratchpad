@@ -5,6 +5,6 @@ var Game = require('./components/game');
 
 document.addEventListener("DOMContentLoaded", function () {
   ReactDOM.render(
-    <Game rowCt={4} colCt={5} />,
+    <Game rowCt={ 16 } colCt={ 30 } />,
     document.getElementById('main'));
 });

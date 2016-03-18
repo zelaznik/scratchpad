@@ -7,41 +7,42 @@ var Board = React.createClass({
   },
 
   render: function () {
-    return(
-      <table>
-        <tbody>
-          {this.tiles()}
-        </tbody>
-      </table>
+    var rows = this.rows();
+    var w = Tile.prototype.WIDTH * rows.length;
+    return (
+      <div className='board-container'>
+         {rows}
+      </div>
     );
-  },
-
-  tiles: function() {
-    var rows, tiles, r, c;
-
-    rows = [];
-    for (r=0; r < this.props.rowCt; r++) {
-      tiles = [];
-      for (c=0; c < this.props.colCt; c++) {
-        tiles.push( <Tile board={this} row={r} col={c} /> );
-      }
-      rows.push( <Row cells={tiles} row={r} /> );
-    }
-    return rows;
   },
 
   updateGame: function() {
     throw new Error("Function Not Implemented");
   },
 
+  rows: function() {
+    var rows, tiles, r, c;
+
+    rows = [];
+    for (r=0; r < this.props.rowCt; r++) {
+      tiles = [];
+      for (c=0; c < this.props.colCt; c++) {
+        tiles.push( <Tile board={this} row={r} col={c} key={'('+r+','+c+')'} /> );
+      }
+      rows.push( <Row cells={tiles} row={r} key={r} /> );
+    }
+    return rows;
+  },
+
 });
+
 
 var Row = React.createClass({
   render: function() {
     return(
-      <tr>
+      <div className='board-row'>
         {this.props.cells}
-      </tr>
+      </div>
     );
   }
 });

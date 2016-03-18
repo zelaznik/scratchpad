@@ -6,7 +6,6 @@ var Tile = React.createClass({
   render: function () {
     return (
       <div className={'board-tile'} key={this.position()}>
-        {this.position()}
       </div>
     );
   },

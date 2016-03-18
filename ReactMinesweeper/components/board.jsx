@@ -7,11 +7,9 @@ var Board = React.createClass({
   },
 
   render: function () {
-    var rows = this.rows();
-    var w = Tile.prototype.WIDTH * rows.length;
     return (
       <div className='board-container'>
-         {rows}
+         {this.rows()}
       </div>
     );
   },
